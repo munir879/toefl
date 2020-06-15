@@ -17,5 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 route::get('/dashboard', 'AdminController@dashboard');
 route::get('/user', 'UserController@index');
+
+Route::livewire('/home', 'home.index');
