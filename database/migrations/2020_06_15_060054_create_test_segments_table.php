@@ -15,7 +15,7 @@ class CreateTestSegmentsTable extends Migration
     {
         Schema::create('test_segments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->char('name', 50);
+            $table->string('name', 50);
         });
     }
 
