@@ -22,3 +22,11 @@ route::get('/dashboard', 'AdminController@dashboard');
 route::get('/user', 'UserController@index');
 
 Route::livewire('/home', 'home.index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
