@@ -22,3 +22,14 @@ route::get('/dashboard', 'AdminController@dashboard');
 route::get('/user', 'UserController@index');
 
 Route::livewire('/home', 'home.index');
+Route::livewire('/questions', 'questions.index');
+Route::livewire('/questions/create', 'questions.create');
+Route::livewire('/questions/update', 'questions.update');
+
+/* Route::group(['middleware' => ['role:admin']], function () {
+    route::prefix('pengeluaran')->group(function () {
+        Route::get('/', 'pengeluaran@index');
+        Route::get('/create', 'pengeluaran@create');
+        Route::get('/{asrama}/edit', 'pengeluaran@edit');
+    });
+}); */
