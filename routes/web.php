@@ -21,7 +21,9 @@ Route::get('/', function () {
 route::get('/dashboard', 'AdminController@dashboard');
 route::get('/user', 'UserController@index');
 
-Route::livewire('/home', 'home.index');
+Route::livewire('/dasbord', 'home.index')->layout('layouts.dashboard');
+
+Route::livewire('/user/registration', 'user.registration');
 
 Auth::routes();
 
