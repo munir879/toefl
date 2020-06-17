@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,11 +26,12 @@ Route::livewire('/dasbord', 'home.index')->layout('layouts.dashboard');
 
 Route::livewire('/user/registration', 'user.registration');
 
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -37,6 +39,20 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::livewire('/questions', 'questions.index');
 Route::livewire('/questions/create', 'questions.create');
 Route::livewire('/questions/update', 'questions.update');
+
+Route::livewire('/user/login', 'user.login');
+Route::livewire('/admin/login', 'admin.login');
+
+// auth member
+Route::middleware('auth:member')->group(function () {
+    Route::livewire('/dasbord', 'home.index')->layout('layouts.dashboard')->name('user.login');
+});
+
+// auth admin
+Route::middleware('auth:admin')->group(function () {
+});
+
+
 
 /* Route::group(['middleware' => ['role:admin']], function () {
     route::prefix('pengeluaran')->group(function () {
