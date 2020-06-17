@@ -34,9 +34,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::livewire('/questions', 'questions.index');
-Route::livewire('/questions/create', 'questions.create');
-Route::livewire('/questions/update', 'questions.update');
+Route::livewire('/questions', 'questions.index')->layout('layouts.dashboard');
+Route::livewire('/questions/create', 'questions.create')->layout('layouts.dashboard');
+Route::livewire('/questions/update', 'questions.update')->layout('layouts.dashboard');
 
 /* Route::group(['middleware' => ['role:admin']], function () {
     route::prefix('pengeluaran')->group(function () {
