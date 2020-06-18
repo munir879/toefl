@@ -39,6 +39,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::livewire('/questions', 'questions.index')->layout('layouts.dashboard');
 Route::livewire('/questions/create', 'questions.create')->layout('layouts.dashboard');
 Route::livewire('/questions/update', 'questions.update')->layout('layouts.dashboard');
+Route::livewire('/test', 'test.index')->layout('layouts.dashboard');
 
 Route::livewire('/user/login', 'user.login');
 Route::livewire('/admin/login', 'admin.login');
