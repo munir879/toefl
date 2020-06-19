@@ -10,7 +10,7 @@ class Question_segment extends Model
         'direction', 'question_quota', 'article_quota'
     ];
 
-    public function test()
+    public function test_segments()
     {
         return $this->hasOne(Test_segment::class);
     }

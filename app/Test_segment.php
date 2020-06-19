@@ -9,13 +9,10 @@ class Test_segment extends Model
     protected $fillable = [
         'name',
     ];
+    public $timestamps = false;
 
-    public function question_segment()
+    public function QuestionSegmentTest()
     {
         return $this->hasOne(Question_segment::class);
-    }
-    public function test()
-    {
-        return $this->hasOne(Test::class);
     }
 }

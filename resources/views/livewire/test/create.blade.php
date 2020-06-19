@@ -37,12 +37,3 @@
         </div>
     </div>
 </div>
-
-
-@push('scripts')
-<script type="text/javascript">
-    window.livewire.on('testStore', () => {
-        $('#exampleModal').modal('hide')
-    })
-</script>
-@endpush
