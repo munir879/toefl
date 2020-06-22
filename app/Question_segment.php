@@ -12,6 +12,14 @@ class Question_segment extends Model
 
     public function test_segments()
     {
-        return $this->hasOne(Test_segment::class);
+        return $this->hasOne(Test_segment::class, 'id');
+    }
+    public function questions()
+    {
+        return $this->hasMany(Question::class);
+    }
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
     }
 }
