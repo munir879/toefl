@@ -1,170 +1,97 @@
 <div class="row">
     <div class="col-4">
-
         <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Question Segments</h6>
+            <div class="card-header py-2">
+                <!-- <h6 class="m-0 font-weight-bold text-primary">About Your Test</h6> -->
+                <a href="#" class="btn btn-danger btn-icon-split">
+                    <span class="icon text-white-40">
+                      <i class="fas fa-play"></i>
+                    </span>
+                    <span class="text">Start</span>
+                  </a>
             </div>
             <div class="card-body">
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-5 col-form-label">Name</label>
-
-                    <div class="col-sm-7">
-                        <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$QuesSegmen->test_segments->name}}">
-                    </div>
+                    <label for="staticEmail" class="col-sm-5 col-form-label">Name : </label>
                 </div>
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-5 col-form-label">Question Quota</label>
-
-                    <div class="col-sm-7">
-                        <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$CountQuestion}} / {{$QuesSegmen->question_quota}}">
-                    </div>
+                    <label for="staticEmail" class="col-sm-5 col-form-label">Date : </label>
                 </div>
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-5 col-form-label">Article Quota</label>
-
-                    <div class="col-sm-7">
-                        <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$QuesSegmen->int ? : 0}} / {{$CountArticle}}">
-                    </div>
+                    <label for="staticEmail" class="col-sm-5 col-form-label">Segments : </label>
                 </div>
-
             </div>
-            @if (session()->has('message'))
-            <div class="alert alert-success">
-                {{ session('message') }}
-            </div>
-            @endif
         </div>
-
     </div>
+
     <div class="col-8">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Questions</h6>
+                <h6 class="m-0 font-weight text-primary"><center>Questions <b>1 out of 10</center></b></h6>
             </div>
             <div class="card-body">
-
                 <div class="form-group">
-
-                    <textarea wire:model="Questions" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <div class="progress progress-sm mr-2">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
                 </div>
-                @error('Questions')
-                <div class="alert alert-danger" role="alert">
-                    {{ $message }}
+
+                <div class="card-body">
+                    <h5 class="m-0 font-weight">(directions) atau (Article)</b></h5>
                 </div>
-                @enderror
-
-
-                <div class="text-center">
-                    <h1>Answer</h1>
+                <div class="card-body">
+                    <h5 class="m-0 font-weight">What do you want … with all these books?</b></h5>
                 </div>
                 <br>
-                <div class="form-group row">
 
-                    <div class="col-sm-1"></div>
-
-                    <div class="col-sm-1 form-check form-check-inline">
-                        <input wire:model="answers.option.1" class="form-check-input checkbox" type="checkbox" id="inlineCheckbox1" value=true>
-                    </div>
-                    <div class="col-sm-9">
-                        <input wire:model="answers.answer.1" type="text" class="form-control" id="exampleFormControlInput1">
-                    </div>
-
+                <div class="form-group col-9">
+                <a href="#" class="btn btn-google btn-block text-left">Me to do</a>
                 </div>
-                @error('answers.answer.1')
-                <div class="row">
-                    <div class="col-sm-2"></div>
-                    <div class="alert alert-danger" role="alert">
-                        {{ $message }}
-                    </div>
-                </div>
-                @enderror
-
-                <div class="form-group row">
-
-                    <div class="col-sm-1"></div>
-
-                    <div class="col-sm-1 form-check form-check-inline">
-                        <input wire:model="answers.option.2" class="form-check-input checkbox" type="checkbox" id="inlineCheckbox1" value=true>
-                    </div>
-                    <div class="col-sm-9">
-                        <input wire:model="answers.answer.2" type="text" class="form-control" id="exampleFormControlInput1">
-                    </div>
-
+                
+                <div class="form-group col-9">
+                <a href="#" class="btn btn-google btn-block text-left">I do</a>
                 </div>
 
-                @error('answers.answer.2')
-                <div class="row">
-                    <div class="col-sm-2"></div>
-                    <div class="alert alert-danger" role="alert">
-                        {{ $message }}
-                    </div>
-                </div>
-                @enderror
-
-                <div class="form-group row">
-
-                    <div class="col-sm-1"></div>
-
-                    <div class="col-sm-1 form-check form-check-inline">
-                        <input wire:model="answers.option.3" class="form-check-input checkbox" type="checkbox" id="inlineCheckbox1" value=true>
-                    </div>
-                    <div class="col-sm-9">
-                        <input wire:model="answers.answer.3" type="text" class="form-control" id="exampleFormControlInput1">
-                    </div>
-
+                <div class="form-group col-9">
+                <a href="#" class="btn btn-google btn-block text-left">I'll do</a>
                 </div>
 
-                @error('answers.answer.3')
-                <div class="row">
-                    <div class="col-sm-2"></div>
-                    <div class="alert alert-danger" role="alert">
-                        {{ $message }}
-                    </div>
+                <div class="form-group col-9">
+                <a href="#" class="btn btn-google btn-block text-left">Me do</a>
                 </div>
-                @enderror
+                <br>
 
-                <div class="form-group row">
-
-                    <div class="col-sm-1"></div>
-
-                    <div class="col-sm-1 form-check form-check-inline">
-                        <input wire:model="answers.option.4" class="form-check-input checkbox" type="checkbox" id="inlineCheckbox1" value=true>
-                    </div>
-                    <div class="col-sm-9">
-                        <input wire:model="answers.answer.4" type="text" class="form-control" id="exampleFormControlInput1">
-                    </div>
-
-                </div>
-
-                @error('answers.answer.1')
-                <div class="row">
-                    <div class="col-sm-2"></div>
-                    <div class="alert alert-danger" role="alert">
-                        {{ $message }}
-                    </div>
-                </div>
-                @enderror
-
-                @error('answers.option')
-                <div class="alert alert-danger" role="alert">
-                    {{ $message }}
-                </div>
-                @enderror
-                @error('answers.answer')
-                <div class="alert alert-danger" role="alert">
-                    {{ $message }}
-                </div>
-                @enderror
-                <button type="button" wire:click="Store" class="btn btn-primary  btn-block">save</button>
+                <!-- <br>
+                <a href="#" class="btn btn-danger btn-icon-split btn-sm">
+                    <span class="text">Next</span>
+                    <span class="icon text-white-40">
+                      <i class="fas fa-play"></i>
+                    </span>
+                  </a> -->
+                  
+                  <div class="col-sm-12">
+                <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+                    
+                <ul class="pagination">
+                  <li class="paginate_button page-item previous" id="dataTable_previous">
+                    <a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link"><span class="icon text-white-40">
+                      <i class="fas fa-caret-left"></i> Prev</a>
+                  </li>
+                  
+                  <li class="paginate_button page-item next" id="dataTable_next">
+                    <a href="#" aria-controls="dataTable" data-dt-idx="7" tabindex="0" class="page-link">Next <span class="icon text-white-40">
+                      <i class="fas fa-caret-right"></i></a>
+                  </li>
+                </ul>
+                
+              </div>
             </div>
+
+
+
+              
+
+            </div>  
         </div>
     </div>
 </div>
-@push('scripts')
-<script>
-    window.livewire.on('reset', () => {
-        $('.checkbox').prop('checked', false);
-    })
-</script>
-@endpush

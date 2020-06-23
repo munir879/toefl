@@ -42,6 +42,7 @@ Route::livewire('/questions/update', 'questions.update')->layout('layouts.dashbo
 Route::livewire('/test', 'test.index')->layout('layouts.dashboard');
 Route::livewire('/test/segmen', 'test.segmen')->layout('layouts.dashboard');
 Route::livewire('/membertest', 'member-test-questions.index')->layout('layouts.dashboard');
+Route::livewire('/score', 'score.index')->layout('layouts.dashboard');
 
 Route::livewire('/user/login', 'user.login');
 Route::livewire('/admin/login', 'admin.login');
