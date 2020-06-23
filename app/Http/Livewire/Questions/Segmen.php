@@ -23,6 +23,9 @@ class Segmen extends Component
             'question_quota' => $this->question_quota,
             'article_quota' => $this->article_quota,
         ]);
+
+        $this->emit('testStore');
+        $this->reset();
     }
 
     public function render()

@@ -43,7 +43,9 @@ class Create extends Component
             'Questions' => 'required'
         ], $messages);
 
-
+        if ($this->QuesSegmen->question_quota - $this->CountQuestion < 1) {
+            return session()->flash('danger', 'Quota questions limit');
+        }
 
         $Question = Question::create([
             'question_segment_id' => $this->QuesSegmen->id,

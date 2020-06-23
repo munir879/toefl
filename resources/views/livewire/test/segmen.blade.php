@@ -64,10 +64,7 @@
 @push('scripts')
 <script type="text/javascript">
     window.livewire.on('testStore', () => {
-        $('#exampleModal').modal('hide')
-    })
-    window.livewire.on('testUpdate', () => {
-        $('#editModal').modal('hide')
+        $('#QuesSegmen').modal('hide')
     })
 </script>
 @endpush
