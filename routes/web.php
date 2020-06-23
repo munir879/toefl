@@ -41,13 +41,14 @@ Route::livewire('/questions/create/{id}', 'questions.create')->layout('layouts.d
 Route::livewire('/questions/update', 'questions.update')->layout('layouts.dashboard');
 Route::livewire('/test', 'test.index')->layout('layouts.dashboard');
 Route::livewire('/test/segmen', 'test.segmen')->layout('layouts.dashboard');
+Route::livewire('/membertest', 'member-test-questions.index')->layout('layouts.dashboard');
 
 Route::livewire('/user/login', 'user.login');
 Route::livewire('/admin/login', 'admin.login');
 
 // auth member
 Route::middleware('auth:member')->group(function () {
-    Route::livewire('/dasbord', 'home.index')->layout('layouts.dashboard')->name('user.login');
+Route::livewire('/dasbord', 'home.index')->layout('layouts.dashboard')->name('user.login');
 });
 
 // auth admin
