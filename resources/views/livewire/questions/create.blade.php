@@ -49,6 +49,28 @@
             </div>
             <div class="card-body">
 
+                <h4>Article</h4>
+
+
+                <div class="form-group">
+                    <select wire:model="ArticleId" class="form-control" id="exampleFormControlSelect1">
+                        <option value="0">None</option>
+                        @foreach($Articles as $data)
+                        <option value="{{$data->id}}">{{$data->id}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                @if($ArticleId > 0)
+                <div class="form-group">
+                    <textarea class="form-control" readonly rows="3">{{$Article->content}}</textarea>
+                </div>
+                @endif
+
+
+                <h4>Questions</h4>
+
+
+
                 <div class="form-group">
 
                     <textarea wire:model="Questions" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
@@ -61,7 +83,7 @@
 
 
                 <div class="text-center">
-                    <h1>Answer</h1>
+                    <h4>Answer</h4>
                 </div>
                 <br>
                 <div class="form-group row">

@@ -5,25 +5,42 @@ namespace App\Http\Livewire\Questions;
 use Livewire\Component;
 use App\Question_segment;
 use App\Question;
+use App\Article;
 
 class Create extends Component
 {
-    public $add = true;
+
     public $QuesSegmen;
     public $CountQuestion;
     public $CountArticle;
     public $Questions;
+    public $QuesSegmenId;
+    public $Articles;
+    public $ArticleId = 0;
+    public $Article;
     public $answers = array('answer' => '', 'option' => '');
 
 
 
 
-    public function mount(Question_segment $id)
+    public function mount($id)
     {
+        $this->QuesSegmenId = $id;
+        $this->getQuesSegmenProperty($id);
+    }
 
-        $this->CountQuestion = $id->questions->count();
-        $this->CountArticle = $id->articles->count();
-        $this->QuesSegmen = $id;
+    public function getQuesSegmenProperty($id)
+    {
+        $QuesSegmen = Question_segment::find($id);
+        $this->CountQuestion = $QuesSegmen->questions->count();
+        $this->CountArticle = $QuesSegmen->articles->count();
+        $this->QuesSegmen = $QuesSegmen;
+        $this->Articles = $QuesSegmen->articles;
+    }
+
+    public function updatingArticleId($value)
+    {
+        $this->Article = Article::find($value);
     }
 
     public function Store()
@@ -47,9 +64,11 @@ class Create extends Component
             return session()->flash('danger', 'Quota questions limit');
         }
 
+
         $Question = Question::create([
             'question_segment_id' => $this->QuesSegmen->id,
             'question' => $this->Questions,
+            'article_id' => $this->ArticleId > 0 ? $this->ArticleId : null
         ]);
         for ($i = 1; $i <= 4; $i++) {
             $option = empty($this->answers['option'][$i]) ? false : true;
@@ -62,21 +81,14 @@ class Create extends Component
             }
             $this->answers['answer'][$i] = null;
         }
-
-        session()->flash('message', 'Question successfully created.');
+        $this->ArticleId = 0;
         $this->Questions = null;
         $this->emit('reset');
+        $this->getQuesSegmenProperty($this->QuesSegmenId);
+        session()->flash('message', 'Question successfully created.');
     }
 
-    public function AddArticleQuestion()
-    {
-        $this->QuesArticle++;
-    }
 
-    public function AddQuesArticleAnswer()
-    {
-        $this->QuesArticleAnswer++;
-    }
     public function render()
     {
         return view('livewire.questions.create');

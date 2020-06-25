@@ -38,6 +38,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::livewire('/questions', 'questions.index')->layout('layouts.dashboard');
 Route::livewire('/questions/create/{id}', 'questions.create')->layout('layouts.dashboard')->name('questions.create');
+Route::livewire('/articles/create/{id}', 'article.create')->layout('layouts.dashboard')->name('articles.create');
 Route::livewire('/questions/update', 'questions.update')->layout('layouts.dashboard');
 Route::livewire('/test', 'test.index')->layout('layouts.dashboard');
 Route::livewire('/test/segmen', 'test.segmen')->layout('layouts.dashboard');
@@ -49,7 +50,7 @@ Route::livewire('/admin/login', 'admin.login');
 
 // auth member
 Route::middleware('auth:member')->group(function () {
-Route::livewire('/dasbord', 'home.index')->layout('layouts.dashboard')->name('user.login');
+    Route::livewire('/dasbord', 'home.index')->layout('layouts.dashboard')->name('user.login');
 });
 
 // auth admin

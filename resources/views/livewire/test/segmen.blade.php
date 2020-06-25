@@ -49,7 +49,10 @@
                                 <td>{{$data->question_segment->direction}}</td>
                                 <td>{{$data->question_segment->question_quota}}</td>
                                 <td>{{$data->question_segment->article_quota}}</td>
-                                <td><a class="btn btn-primary" role="button" href="{{route('questions.create', $data->question_segment)}}">Add Quest</a></td>
+                                <td>
+                                    <a class="btn btn-primary" role="button" href="{{route('questions.create', $data->question_segment)}}">Add Quest</a>
+                                    <a class="btn btn-primary" role="button" href="{{route('articles.create', $data->question_segment)}}">Add Articles</a>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

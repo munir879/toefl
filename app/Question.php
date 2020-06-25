@@ -8,7 +8,7 @@ class Question extends Model
 {
 
     protected $fillable = [
-        'question', 'question_segment_id'
+        'question', 'question_segment_id', 'article_id'
     ];
 
     public function questionSegmen()
