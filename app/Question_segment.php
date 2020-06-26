@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Question_segment extends Model
 {
     protected $fillable = [
-        'direction', 'question_quota', 'article_quota'
+        'direction', 'question_quota', 'article_quota', 'test_segment_id'
     ];
 
     public function test_segments()
@@ -21,5 +21,9 @@ class Question_segment extends Model
     public function articles()
     {
         return $this->hasMany(Article::class);
+    }
+    public function test_question_segment()
+    {
+        return $this->hasOne(test_question_segment::class, 'id');
     }
 }

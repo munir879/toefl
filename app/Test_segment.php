@@ -18,4 +18,8 @@ class Test_segment extends Model
     {
         return $this->hasOne(Question_segment::class);
     }
+    public function test_question_segment()
+    {
+        return $this->hasOne(test_question_segment::class, 'id');
+    }
 }

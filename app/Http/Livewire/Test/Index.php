@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Test;
 
 use Livewire\Component;
 use App\Test;
+use App\Test_segment;
 
 class Index extends Component
 {
@@ -16,6 +17,7 @@ class Index extends Component
     {
         session()->flash('message', 'Test successfully created.');
     }
+
     public function testupdate()
     {
         session()->flash('message', 'Test successfully updated.');
@@ -35,7 +37,7 @@ class Index extends Component
     public function render()
     {
         return view('livewire.test.index', [
-            'test' => Test::get()
+            'test' => Test::with('question_segments')->get()
         ]);
     }
 }

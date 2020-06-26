@@ -42,10 +42,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($TestSegmen as $data)
+                            @foreach($question_segments as $data)
                             <tr>
                                 <td>{{$loop->index+1}}</td>
-                                <td>{{$data->name}}</td>
+                                <td>{{$data->test_segmen->name}}</td>
                                 <td>{{$data->question_segment->direction}}</td>
                                 <td>{{$data->question_segment->question_quota}}</td>
                                 <td>{{$data->question_segment->article_quota}}</td>
@@ -62,7 +62,7 @@
         </div>
     </div>
 </div>
-<livewire:questions.segmen />
+<livewire:questions.segmen :id="$IdTest" />
 
 @push('scripts')
 <script type="text/javascript">

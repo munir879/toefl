@@ -1,3 +1,4 @@
+{{$this->asd(123)}}
 <div class="row">
     <div class="col-4">
         <div class="card shadow mb-4">
@@ -5,14 +6,14 @@
                 <!-- <h6 class="m-0 font-weight-bold text-primary">About Your Test</h6> -->
                 <a href="#" class="btn btn-danger btn-icon-split">
                     <span class="icon text-white-40">
-                      <i class="fas fa-play"></i>
+                        <i class="fas fa-play"></i>
                     </span>
                     <span class="text">Start</span>
-                  </a>
+                </a>
             </div>
             <div class="card-body">
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-5 col-form-label">Name : </label>
+                    <label for="staticEmail" class="col-sm-5 col-form-label">Name : {{$Test->name}}</label>
                 </div>
                 <div class="form-group row">
                     <label for="staticEmail" class="col-sm-5 col-form-label">Date : </label>
@@ -27,7 +28,9 @@
     <div class="col-8">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight text-primary"><center>Questions <b>1 out of 10</center></b></h6>
+                <h6 class="m-0 font-weight text-primary">
+                    <center>Questions <b>1 out of 10</center></b>
+                </h6>
             </div>
             <div class="card-body">
                 <div class="form-group">
@@ -45,19 +48,19 @@
                 <br>
 
                 <div class="form-group col-9">
-                <a href="#" class="btn btn-google btn-block text-left">Me to do</a>
-                </div>
-                
-                <div class="form-group col-9">
-                <a href="#" class="btn btn-google btn-block text-left">I do</a>
+                    <a href="#" class="btn btn-google btn-block text-left">Me to do</a>
                 </div>
 
                 <div class="form-group col-9">
-                <a href="#" class="btn btn-google btn-block text-left">I'll do</a>
+                    <a href="#" class="btn btn-google btn-block text-left">I do</a>
                 </div>
 
                 <div class="form-group col-9">
-                <a href="#" class="btn btn-google btn-block text-left">Me do</a>
+                    <a href="#" class="btn btn-google btn-block text-left">I'll do</a>
+                </div>
+
+                <div class="form-group col-9">
+                    <a href="#" class="btn btn-google btn-block text-left">Me do</a>
                 </div>
                 <br>
 
@@ -68,30 +71,30 @@
                       <i class="fas fa-play"></i>
                     </span>
                   </a> -->
-                  
-                  <div class="col-sm-12">
-                <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
-                    
-                <ul class="pagination">
-                  <li class="paginate_button page-item previous" id="dataTable_previous">
-                    <a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link"><span class="icon text-white-40">
-                      <i class="fas fa-caret-left"></i> Prev</a>
-                  </li>
-                  
-                  <li class="paginate_button page-item next" id="dataTable_next">
-                    <a href="#" aria-controls="dataTable" data-dt-idx="7" tabindex="0" class="page-link">Next <span class="icon text-white-40">
-                      <i class="fas fa-caret-right"></i></a>
-                  </li>
-                </ul>
-                
-              </div>
+
+                <div class="col-sm-12">
+                    <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+
+                        <ul class="pagination">
+                            <li class="paginate_button page-item previous" id="dataTable_previous">
+                                <a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link"><span class="icon text-white-40">
+                                        <i class="fas fa-caret-left"></i> Prev</a>
+                            </li>
+
+                            <li class="paginate_button page-item next" id="dataTable_next">
+                                <a href="#" aria-controls="dataTable" data-dt-idx="7" tabindex="0" class="page-link">Next <span class="icon text-white-40">
+                                        <i class="fas fa-caret-right"></i></a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+
+
+
+
             </div>
-
-
-
-              
-
-            </div>  
         </div>
     </div>
 </div>

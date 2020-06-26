@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Questions;
 
 use Livewire\Component;
-use App\Test_segment;
+use App\Question_segment;
 
 class Segmen extends Component
 {
@@ -11,21 +11,34 @@ class Segmen extends Component
     public $direction;
     public $question_quota;
     public $article_quota;
+    public $IdTest;
 
+    public function mount($id)
+    {
+        $this->IdTest = $id;
+    }
 
     public function store()
     {
-        $test = Test_segment::create([
-            'name' => $this->name,
-        ]);
-        $test->question_segment()->create([
-            'direction' => $this->direction,
-            'question_quota' => $this->question_quota,
-            'article_quota' => $this->article_quota,
+        $quess = new Question_segment;
+
+        $TestSegmen = $quess->test_segments()->create([
+            'name' => 'asd'
+        ])->id;
+
+        $Question_segment = $quess->create([
+            'test_segment_id' => $TestSegmen,
+            'direction' => 'asdadasd',
+            'question_quota' => 1,
+            'article_quota' => 1
+        ])->id;
+
+        $quess->test_question_segment()->create([
+            'test_id' => $this->IdTest,
+            'question_segment_id' => $Question_segment
         ]);
 
         $this->emit('testStore');
-        $this->reset();
     }
 
     public function render()

@@ -14,4 +14,8 @@ class Test extends Model
     {
         return $this->belongsToMany(Question_segment::class, test_question_segment::class);
     }
+    public function tets_segmen()
+    {
+        return $this->hasOne(Test_segment::class, 'id');
+    }
 }

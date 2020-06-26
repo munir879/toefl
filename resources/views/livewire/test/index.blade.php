@@ -35,7 +35,6 @@
                             <tr>
                                 <th style="width:20px">No</th>
                                 <th>Nama</th>
-                                <th>Test Question segments</th>
                                 <th>Status</th>
                                 <th>Action</th>
 
@@ -46,8 +45,9 @@
                             <tr>
                                 <td>{{$loop->index+1}}</td>
                                 <td>{{$data->name}}</td>
+
                                 <td>{{$data->is_active = true ? 'aktif': 'tidak aktif'}}</td>
-                                <td></td>
+
                                 <td>
                                     <button wire:click="$emit('editTest', {{$data->id}})" type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal">
                                         edit
@@ -57,6 +57,7 @@
                                     @else
                                     <button wire:click="confirmDelete({{ $data->id }})" type="button" class="btn btn-warning">Delete</button>
                                     @endif
+                                    <a class="btn btn-primary" href="{{route('test.segmen', $data->id)}}" role="button">Test Segmen</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -69,6 +70,7 @@
 </div>
 <livewire:test.create />
 <livewire:test.edit />
+
 @push('scripts')
 <script type="text/javascript">
     window.livewire.on('testStore', () => {
