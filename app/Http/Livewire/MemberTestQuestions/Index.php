@@ -33,6 +33,9 @@ class Index extends Component
     {
         $this->Segmen = test_question_segment::where('test_id', $id)->with('test_segmen', 'question_segment')->get();
         $this->Test = Test::find($id);
+        if (is_null($this->Test)) {
+            return abort(404);
+        }
     }
 
     public function render()

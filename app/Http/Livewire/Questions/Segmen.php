@@ -23,14 +23,14 @@ class Segmen extends Component
         $quess = new Question_segment;
 
         $TestSegmen = $quess->test_segments()->create([
-            'name' => 'asd'
+            'name' => $this->name
         ])->id;
 
         $Question_segment = $quess->create([
             'test_segment_id' => $TestSegmen,
-            'direction' => 'asdadasd',
-            'question_quota' => 1,
-            'article_quota' => 1
+            'direction' => $this->direction,
+            'question_quota' => $this->question_quota,
+            'article_quota' => $this->article_quota
         ])->id;
 
         $quess->test_question_segment()->create([
