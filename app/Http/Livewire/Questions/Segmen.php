@@ -38,6 +38,7 @@ class Segmen extends Component
             'question_segment_id' => $Question_segment
         ]);
 
+        $this->reset('name', 'direction', 'question_quota', 'article_quota');
         $this->emit('testStore');
     }
 

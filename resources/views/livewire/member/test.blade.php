@@ -19,7 +19,7 @@
             </div>
             <!-- Card Body -->
             <div class="card-body">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#QuesSegmen">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                     Launch demo modal
                 </button>
                 <br>
@@ -35,23 +35,26 @@
                             <tr>
                                 <th style="width:20px">No</th>
                                 <th>Nama</th>
-                                <th>Direction</th>
-                                <th>Question Quota</th>
-                                <th>Article Quota</th>
+                                <th>Segmen</th>
                                 <th>Action</th>
+
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($question_segments as $data)
+                            @foreach($test as $data)
+
                             <tr>
                                 <td>{{$loop->index+1}}</td>
-                                <td>{{$data->test_segmen->name}}</td>
-                                <td>{{$data->question_segment->direction}}</td>
-                                <td>{{$data->question_segment->question_quota}}</td>
-                                <td>{{$data->question_segment->article_quota}}</td>
+                                <td>{{$data->name}}</td>
                                 <td>
-                                    <a class="btn btn-primary" role="button" href="{{route('questions.create', $data->question_segment)}}">Add Quest</a>
-                                    <a class="btn btn-primary" role="button" href="{{route('articles.create', $data->question_segment)}}">Add Articles</a>
+                                    <ul class="list-group list-group-flush">
+                                        @foreach($data->question_segments as $question_segments)
+                                        <li class="list-group-item">{{$this->name($question_segments->test_segment_id)}}</li>
+                                        @endforeach
+                                    </ul>
+                                </td>
+                                <td>
+                                    <a class="btn btn-primary" href="{{route('start.test', $data->id)}}" role="button">Link</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -62,4 +65,3 @@
         </div>
     </div>
 </div>
-<livewire:questions.segmen :id="$IdTest" />

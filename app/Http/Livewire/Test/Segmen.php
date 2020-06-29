@@ -17,8 +17,11 @@ class Segmen extends Component
         'testStore' => 'testStore', 'testUpdate' => 'testupdate'
     ];
 
-    public function mount($id)
+    public function mount($id = null)
     {
+        if ($id == null) {
+            return abort(404);
+        }
         $this->IdTest = $id;
         $this->question_segments($id);
     }
@@ -26,9 +29,6 @@ class Segmen extends Component
     private function question_segments($id)
     {
         $this->question_segments = test_question_segment::where('test_id', $id)->with('test_segmen', 'question_segment')->get();
-        if ($this->question_segments->isEmpty()) {
-            return abort(404);
-        }
     }
 
 

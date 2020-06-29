@@ -58,3 +58,11 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+<script type="text/javascript">
+    window.livewire.on('testStore', () => {
+        $('#QuesSegmen').modal('hide')
+    })
+</script>
+@endpush
