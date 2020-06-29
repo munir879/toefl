@@ -73,6 +73,7 @@
 
 @push('scripts')
 <script type="text/javascript">
+    $('.modal-backdrop fade show').remove();
     window.livewire.on('testStore', () => {
         $('#exampleModal').modal('hide')
     })

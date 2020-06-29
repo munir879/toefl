@@ -32,7 +32,7 @@
                                 </button>
 
                                 @if (session()->has('status'))
-                                <div class="alert alert-success">
+                                <div class="alert alert-danger">
                                     {{ session('status') }}
                                 </div>
                                 @endif

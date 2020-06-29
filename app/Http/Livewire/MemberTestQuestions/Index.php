@@ -24,7 +24,7 @@ class Index extends Component
         $this->IdTest = $id;
         $this->DataTest($id);
         $this->MemberTestId = Member_test::firstOrCreate([
-            'member_id' => 1,
+            'member_id' => \Auth::id(),
             'test_id' => $id
         ])->id;
     }

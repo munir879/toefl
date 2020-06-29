@@ -43,8 +43,6 @@ Route::livewire('/questions/update', 'questions.update')->layout('layouts.dashbo
 Route::livewire('/test', 'test.index')->layout('layouts.dashboard');
 Route::livewire('/test/segmen', 'test.segmen')->layout('layouts.dashboard');
 Route::livewire('/test/segmen/{id}', 'test.segmen')->layout('layouts.dashboard')->name('test.segmen');
-Route::livewire('/member/test/{id}', 'member-test-questions.index')->layout('layouts.dashboard')->name('start.test');
-Route::livewire('/member/test', 'member.test')->layout('layouts.dashboard');
 Route::livewire('/score', 'score.index')->layout('layouts.dashboard');
 
 Route::livewire('/user/login', 'user.login');
@@ -53,6 +51,8 @@ Route::livewire('/admin/login', 'admin.login');
 // auth member
 Route::middleware('auth:member')->group(function () {
     Route::livewire('/dasbord', 'home.index')->layout('layouts.dashboard')->name('user.login');
+    Route::livewire('/member/test/{id}', 'member-test-questions.index')->layout('layouts.dashboard')->name('start.test');
+    Route::livewire('/member/test', 'member.test')->layout('layouts.dashboard');
 });
 
 // auth admin
