@@ -15,8 +15,8 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button wire:click="save" type="button" id="save" class="btn btn-secondary">save</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button wire:click="save" type="button" id="save" class="btn btn-success">save</button>
             </div>
         </div>
     </div>
