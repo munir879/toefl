@@ -46,7 +46,6 @@
                             </tr>
                         </thead>
                         <tbody>
-
                             @foreach($question_segments as $data)
                             <tr>
                                 <td>{{$loop->index+1}}</td>

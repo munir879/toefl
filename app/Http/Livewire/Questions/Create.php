@@ -70,6 +70,8 @@ class Create extends Component
             'question' => $this->Questions,
             'article_id' => $this->ArticleId > 0 ? $this->ArticleId : null
         ]);
+
+
         for ($i = 1; $i <= 4; $i++) {
             $option = empty($this->answers['option'][$i]) ? false : true;
             $answer = $this->answers['answer'][$i] ?: false;
