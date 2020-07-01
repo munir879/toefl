@@ -4,7 +4,7 @@ namespace App\Http\Livewire\Article;
 
 use Livewire\Component;
 use App\Question_segment;
-use App\Article;
+use App\Question;
 
 class Index extends Component
 {
