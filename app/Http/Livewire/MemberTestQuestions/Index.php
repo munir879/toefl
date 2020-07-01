@@ -41,7 +41,7 @@ class Index extends Component
     public function render()
     {
         $Question = test_question_segment::where('test_id', $this->IdTest)->with('question_segment')->paginate(1);
-        $Question->setPageName('Question');
+
         return view('livewire.member-test-questions.index', compact('Question'));
     }
 }

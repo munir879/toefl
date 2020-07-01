@@ -56,11 +56,11 @@
                                 <td>
                                     <a class="btn btn-primary" role="button" href="{{route('questions.create', $data->question_segment)}}">Add Quest</a>
                                     <a class="btn btn-primary" role="button" href="{{route('articles.create', $data->question_segment)}}">Add Articles</a>
+                                    <a class="btn btn-primary" role="button" href="{{route('articles.index', $data->question_segment->id)}}">All Articles</a>
+                                    <a class="btn btn-primary" role="button" href="{{route('questions.index', $data->question_segment->id)}}">All Question</a>
                                     <button wire:click="$emit('EditSegmen', {{$data->id}})" type="button" class="btn btn-primary" data-toggle="modal" data-target="#QuesSegmenUpdate">
                                         Edit Quesion Segmen
                                     </button>
-                                    <a class="btn btn-primary" role="button" href="{{route('articles.index', $data->question_segment->id)}}">All Articles</a>
-                                    <a class="btn btn-primary" role="button" href="{{route('questions.index', $data->question_segment->id)}}">All Question</a>
                                     @if($confirm===$data->id)
                                     <button wire:click="kill({{ $data->id }})" type="button" class="btn btn-danger">Sure?</button>
                                     @else

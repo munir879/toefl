@@ -18,8 +18,8 @@ class CreateMemberTestTable extends Migration
             $table->unsignedBigInteger('member_id');
             $table->unsignedBigInteger('test_id');
             $table->integer('score')->nullable();
-            $table->foreign('member_id')->references('id')->on('members');
-            $table->foreign('test_id')->references('id')->on('tests');
+            $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
+            $table->foreign('test_id')->references('id')->on('tests')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -16,7 +16,7 @@ class CreateTestQuestionSegmentQuestionsTable extends Migration
         Schema::create('test_question_segment_questions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('test_question_segment_id');
-            $table->foreign('test_question_segment_id')->references('id')->on('test_question_segments');
+            $table->foreign('test_question_segment_id')->references('id')->on('test_question_segments')->onDelete('cascade');
             $table->unsignedBigInteger('question_id')->default(null);
             $table->foreign('question_id')->references('id')->on('questions');
             $table->integer('order');

@@ -82,6 +82,7 @@ class Create extends Component
                 ]);
             }
             $this->answers['answer'][$i] = null;
+            $this->answers['option'][$i] = null;
         }
         $this->ArticleId = 0;
         $this->Questions = null;

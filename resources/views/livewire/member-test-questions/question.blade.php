@@ -16,7 +16,7 @@
         </div>
         @endif
         <h6>
-            <center>{{$ques->currentPage()}} Out Of 10 (script total questions)</center>
+            <center>{{$ques->currentPage()}} Out Of {{$ques->total()}}</center>
         </h6>
 
 

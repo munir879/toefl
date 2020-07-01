@@ -16,11 +16,11 @@ class CreateMemberTestQuestionsTable extends Migration
         Schema::create('member_test_questions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('member_test_id');
-            $table->foreign('member_test_id')->references('id')->on('member_test');
+            $table->foreign('member_test_id')->references('id')->on('member_test')->onDelete('cascade');
             $table->unsignedBigInteger('question_id');
-            $table->foreign('question_id')->references('id')->on('questions');
+            $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
             $table->unsignedBigInteger('answer_id');
-            $table->foreign('answer_id')->references('id')->on('answers');
+            $table->foreign('answer_id')->references('id')->on('answers')->onDelete('cascade');
             $table->timestamps();
         });
     }
