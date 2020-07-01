@@ -20,7 +20,6 @@
         <div class="card-body">
             <h5 class="m-0 font-weight">(directions) atau (Article)</b></h5>
         </div>
-
         @foreach($ques as $data)
         @if($data->Article)
         <div class="card-body">

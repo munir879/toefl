@@ -14,6 +14,7 @@ class Question extends Component
     public $IdQuestion;
     public $MemberTestId;
 
+
     public function mount($question, $MemberTest)
     {
         $this->resetPage();
@@ -36,7 +37,6 @@ class Question extends Component
             ],
             [
                 'answer_id' => $idAnswer,
-
             ]
         );
     }

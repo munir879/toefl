@@ -52,6 +52,9 @@
                                 <td>
                                     <a class="btn btn-primary" role="button" href="{{route('questions.create', $data->question_segment)}}">Add Quest</a>
                                     <a class="btn btn-primary" role="button" href="{{route('articles.create', $data->question_segment)}}">Add Articles</a>
+                                    <button wire:click="$emit('EditSegmen', {{$data->id}})" type="button" class="btn btn-primary" data-toggle="modal" data-target="#QuesSegmenUpdate">
+                                        Edit Quesion Segmen
+                                    </button>
                                 </td>
                             </tr>
                             @endforeach
@@ -63,3 +66,4 @@
     </div>
 </div>
 <livewire:questions.segmen :id="$IdTest" />
+<livewire:questions.segmen-update />

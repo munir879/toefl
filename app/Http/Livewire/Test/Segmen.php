@@ -14,7 +14,9 @@ class Segmen extends Component
     public $IdTest;
     public $question_segments;
     protected $listeners = [
-        'testStore' => 'testStore', 'testUpdate' => 'testupdate'
+        'testStore' => 'testStore',
+        'testUpdate' => 'testupdate',
+        'SegmenUpdate' => 'SegmenUpdate'
     ];
 
     public function mount($id = null)
@@ -36,6 +38,12 @@ class Segmen extends Component
     {
         $this->question_segments($this->IdTest);
         session()->flash('message', 'Test segmen successfully created.');
+    }
+
+    public function SegmenUpdate()
+    {
+        $this->question_segments($this->IdTest);
+        session()->flash('message', 'Test segmen successfully Update.');
     }
 
 
