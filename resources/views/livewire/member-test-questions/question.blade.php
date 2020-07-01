@@ -1,7 +1,7 @@
 <div class="card shadow mb-4">
-    <div class="card-header py-3">
+    <div class="card-header py-2">
         <h6 class="m-0 font-weight text-primary">
-            <center>{{$IdQuestion}}</center></b>
+            <center>Questions {{$IdQuestion}}</center></b>
         </h6>
 
 
@@ -15,11 +15,11 @@
             </div>
         </div>
         @endif
-        <h1>{{$ques->currentPage()}}</h1>
+        <h6>
+            <center>{{$ques->currentPage()}} Out Of 10 (script total questions)</center>
+        </h6>
 
-        <div class="card-body">
-            <h5 class="m-0 font-weight">(directions) atau (Article)</b></h5>
-        </div>
+
         @foreach($ques as $data)
         @if($data->Article)
         <div class="card-body">

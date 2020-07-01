@@ -3,7 +3,7 @@
 
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Question Segments</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Articles Segments</h6>
             </div>
             <div class="card-body">
                 <div class="form-group row">
@@ -45,7 +45,7 @@
     <div class="col-8">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Questions</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Articles</h6>
             </div>
             <div class="card-body">
 

@@ -31,4 +31,5 @@
         @livewire('member-test-questions.question', ['question' => $data->question_segment->id, 'MemberTest' =>$MemberTestId ], key($data->question_segment->id))
         @endforeach
     </div>
+
 </div>

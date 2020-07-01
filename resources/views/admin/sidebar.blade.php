@@ -36,8 +36,9 @@
         <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <!-- <h6 class="collapse-header">Custom User:</h6> -->
+                <a class="collapse-item" href="/test">Input Test</a>
                 <a class="collapse-item" href="/questions">Questions</a>
-                <a class="collapse-item" href="cards.html">Articles</Article></a>
+                <a class="collapse-item" href="/articles">Articles</a>
             </div>
         </div>
     </li>
@@ -51,8 +52,8 @@
         <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <!-- <h6 class="collapse-header">Custom User:</h6> -->
-                <a class="collapse-item" href="buttons.html">Tests</a>
-                <a class="collapse-item" href="cards.html">Scores</a>
+                <a class="collapse-item" href="/member/test">Tests</a>
+                <a class="collapse-item" href="/score">Scores</a>
             </div>
         </div>
     </li>
