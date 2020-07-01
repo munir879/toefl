@@ -21,12 +21,12 @@
             <div class="card-body">
                 <button type="button" class="btn btn-success btn-icon-split" data-toggle="modal" data-target="#QuesSegmen">
                     <span class="icon text-white-50">
-                      <i class="fas fa-plus"></i>
+                        <i class="fas fa-plus"></i>
                     </span>
                     <span class="text">Add Data</span>
                 </button>
                 <div class="my-2"></div>
-                
+
                 <br>
                 @if (session()->has('message'))
                 <div class="alert alert-success">
@@ -46,6 +46,7 @@
                             </tr>
                         </thead>
                         <tbody>
+
                             @foreach($question_segments as $data)
                             <tr>
                                 <td>{{$loop->index+1}}</td>
@@ -59,6 +60,11 @@
                                     <button wire:click="$emit('EditSegmen', {{$data->id}})" type="button" class="btn btn-primary" data-toggle="modal" data-target="#QuesSegmenUpdate">
                                         Edit Quesion Segmen
                                     </button>
+                                    @if($confirm===$data->id)
+                                    <button wire:click="kill({{ $data->id }})" type="button" class="btn btn-danger">Sure?</button>
+                                    @else
+                                    <button wire:click="confirmDelete({{ $data->id }})" type="button" class="btn btn-danger">Delete</button>
+                                    @endif
                                 </td>
                             </tr>
                             @endforeach

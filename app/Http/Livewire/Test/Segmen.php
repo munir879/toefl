@@ -13,6 +13,8 @@ class Segmen extends Component
     public $confirming;
     public $IdTest;
     public $question_segments;
+    public $confirm;
+
     protected $listeners = [
         'testStore' => 'testStore',
         'testUpdate' => 'testupdate',
@@ -26,6 +28,18 @@ class Segmen extends Component
         }
         $this->IdTest = $id;
         $this->question_segments($id);
+    }
+
+    public function confirmDelete($id)
+    {
+        $this->confirm = $id;
+    }
+
+    public function kill($id)
+    {
+        $test = test_question_segment::find($id);
+        dd($test->test_segmen->delete());
+        session()->flash('message', 'Test successfully deleted.');
     }
 
     private function question_segments($id)
