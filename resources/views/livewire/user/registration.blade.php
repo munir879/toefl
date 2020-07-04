@@ -16,32 +16,31 @@
                         @endif
                         <div class="form-group">
                             <input wire:model="name" type="text" class="form-control form-control-user" id="exampleInputEmail" placeholder="Nama">
-                            @error('name') <span class="error">{{ $message }}</span> @enderror
                         </div>
+                        @error('name') <span class="error alert-danger">{{ $message }}</span> @enderror
                         <div class="form-group">
                             <input wire:model="email" type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address">
-                            @error('email') <span class="error">{{ $message }}</span> @enderror
                         </div>
+                        @error('email') <span class="error alert-danger">{{ $message }}</span> @enderror
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
                                 <input wire:model="password" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
-                                @error('password') <span class="error">{{ $message }}</span> @enderror
                             </div>
+
                             <div class="col-sm-6">
                                 <input wire:model="repassword" type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repeat Password">
-                                @error('repassword') <span class="error">{{ $message }}</span> @enderror
                             </div>
+
                         </div>
+                        @error('password') <span class="error alert-danger">{{ $message }}</span> @enderror
+                        @error('repassword') <span class="error alert-danger">{{ $message }}</span> @enderror
                         <button wire:click="Registration" href="login.html" class="btn btn-primary btn-user btn-block">
                             Register Account
                         </button>
 
                         <hr>
                         <div class="text-center">
-                            <a class="small" href="forgot-password.html">Forgot Password?</a>
-                        </div>
-                        <div class="text-center">
-                            <a class="small" href="login.html">Already have an account? Login!</a>
+                            <a class="small" href="{{route('user.login')}}">Already have an account? Login!</a>
                         </div>
                     </div>
                 </div>

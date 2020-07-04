@@ -10,7 +10,7 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Recipient:</label>
-                    <input wire:model="name" name="data" type="text" class="form-control" id="recipient-name">
+                    <input wire:model="name" name="data" type="text" class="form-control">
                     @error('name')
                     <div class="alert alert-danger" role="alert">
                         {{ $message }}

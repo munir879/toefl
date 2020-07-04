@@ -76,5 +76,5 @@
         </div>
     </div>
 </div>
-<livewire:questions.segmen :id="$IdTest" />
+<livewire:questions.segmen :id="$IdTest" :wire:key="1" />
 <livewire:questions.segmen-update />

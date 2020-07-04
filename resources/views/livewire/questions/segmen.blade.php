@@ -10,7 +10,7 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="recipient-name" class="col-form-label">nama:</label>
-                    <input wire:model="name" name="data" type="text" class="form-control" id="recipient-name">
+                    <input wire:model="name" name="data" type="text" class="form-control">
                     @error('name')
                     <div class="alert alert-danger" role="alert">
                         {{ $message }}
@@ -19,7 +19,7 @@
                 </div>
                 <div class="form-group">
                     <label for="recipient-name" class="col-form-label">direction:</label>
-                    <input wire:model="direction" name="data" type="text" class="form-control" id="recipient-name">
+                    <input wire:model="direction" name="data" type="text" class="form-control">
                     @error('direction')
                     <div class="alert alert-danger" role="alert">
                         {{ $message }}
@@ -28,7 +28,7 @@
                 </div>
                 <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Question Quota:</label>
-                    <input wire:model="question_quota" name="data" type="number" class="form-control" id="recipient-name">
+                    <input wire:model="question_quota" name="data" type="number" class="form-control">
                     @error('question_quota')
                     <div class="alert alert-danger" role="alert">
                         {{ $message }}
@@ -37,7 +37,7 @@
                 </div>
                 <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Article Quota</label>
-                    <input wire:model="article_quota" name="data" type="number" class="form-control" id="recipient-name">
+                    <input wire:model="article_quota" name="data" type="number" class="form-control">
                     @error('article_quota')
                     <div class="alert alert-danger" role="alert">
                         {{ $message }}
@@ -61,7 +61,6 @@
 
 @push('scripts')
 <script type="text/javascript">
-    $('.modal-backdrop fade show').remove();
     window.livewire.on('testStore', () => {
         $('#QuesSegmen').modal('hide')
     })

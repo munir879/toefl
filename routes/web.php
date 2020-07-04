@@ -24,7 +24,7 @@ route::get('/user', 'UserController@index');
 
 Route::livewire('/dasbord', 'home.index')->layout('layouts.dashboard');
 
-Route::livewire('/user/registration', 'user.registration');
+Route::livewire('/user/registration', 'user.registration')->name('user.registration');
 
 
 Auth::routes();

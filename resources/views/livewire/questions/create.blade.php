@@ -7,24 +7,24 @@
             </div>
             <div class="card-body">
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-5 col-form-label">Name</label>
+                    <label class="col-sm-5 col-form-label">Name</label>
 
                     <div class="col-sm-7">
-                        <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$QuesSegmen->test_segments->name}}">
+                        <input type="text" readonly class="form-control-plaintext" value="{{$QuesSegmen->test_segments->name}}">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-5 col-form-label">Question Quota</label>
+                    <label class="col-sm-5 col-form-label">Question Quota</label>
 
                     <div class="col-sm-7">
-                        <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$CountQuestion}} / {{$QuesSegmen->question_quota}}">
+                        <input type="text" readonly class="form-control-plaintext" value="{{$CountQuestion}} / {{$QuesSegmen->question_quota}}">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-5 col-form-label">Article Quota</label>
+                    <label class="col-sm-5 col-form-label">Article Quota</label>
 
                     <div class="col-sm-7">
-                        <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$QuesSegmen->int ? : 0}} / {{$CountArticle}}">
+                        <input type="text" readonly class="form-control-plaintext" value="{{$QuesSegmen->int ? : 0}} / {{$CountArticle}}">
                     </div>
                 </div>
 
@@ -53,7 +53,7 @@
 
 
                 <div class="form-group">
-                    <select wire:model="ArticleId" class="form-control" id="exampleFormControlSelect1">
+                    <select wire:model="ArticleId" class="form-control">
                         <option value="0">None</option>
                         @foreach($Articles as $data)
                         <option value="{{$data->id}}">{{$data->id}}</option>
@@ -73,7 +73,7 @@
 
                 <div class="form-group">
 
-                    <textarea wire:model="Questions" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea wire:model="Questions" class="form-control" rows="3"></textarea>
                 </div>
                 @error('Questions')
                 <div class="alert alert-danger" role="alert">
@@ -91,10 +91,10 @@
                     <div class="col-sm-1"></div>
 
                     <div class="col-sm-1 form-check form-check-inline">
-                        <input wire:model="answers.option.1" class="form-check-input checkbox" type="checkbox" id="inlineCheckbox1" value=true>
+                        <input wire:model="answers.option.1" class="form-check-input checkbox" type="checkbox" value=true>
                     </div>
                     <div class="col-sm-9">
-                        <input wire:model="answers.answer.1" type="text" class="form-control" id="exampleFormControlInput1">
+                        <input wire:model="answers.answer.1" type="text" class="form-control">
                     </div>
 
                 </div>
@@ -112,10 +112,10 @@
                     <div class="col-sm-1"></div>
 
                     <div class="col-sm-1 form-check form-check-inline">
-                        <input wire:model="answers.option.2" class="form-check-input checkbox" type="checkbox" id="inlineCheckbox1" value=true>
+                        <input wire:model="answers.option.2" class="form-check-input checkbox" type="checkbox" value=true>
                     </div>
                     <div class="col-sm-9">
-                        <input wire:model="answers.answer.2" type="text" class="form-control" id="exampleFormControlInput1">
+                        <input wire:model="answers.answer.2" type="text" class="form-control">
                     </div>
 
                 </div>
@@ -134,10 +134,10 @@
                     <div class="col-sm-1"></div>
 
                     <div class="col-sm-1 form-check form-check-inline">
-                        <input wire:model="answers.option.3" class="form-check-input checkbox" type="checkbox" id="inlineCheckbox1" value=true>
+                        <input wire:model="answers.option.3" class="form-check-input checkbox" type="checkbox" value=true>
                     </div>
                     <div class="col-sm-9">
-                        <input wire:model="answers.answer.3" type="text" class="form-control" id="exampleFormControlInput1">
+                        <input wire:model="answers.answer.3" type="text" class="form-control">
                     </div>
 
                 </div>
@@ -156,10 +156,10 @@
                     <div class="col-sm-1"></div>
 
                     <div class="col-sm-1 form-check form-check-inline">
-                        <input wire:model="answers.option.4" class="form-check-input checkbox" type="checkbox" id="inlineCheckbox1" value=true>
+                        <input wire:model="answers.option.4" class="form-check-input checkbox" type="checkbox" value=true>
                     </div>
                     <div class="col-sm-9">
-                        <input wire:model="answers.answer.4" type="text" class="form-control" id="exampleFormControlInput1">
+                        <input wire:model="answers.answer.4" type="text" class="form-control">
                     </div>
 
                 </div>
