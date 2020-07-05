@@ -11,7 +11,10 @@
                     <label for="staticEmail" class="col-sm-5 col-form-label">Name : {{$Test->name}}</label>
                 </div>
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-5 col-form-label">Date : </label>
+                    <label for="staticEmail" class="col-sm-5 col-form-label">Date : {{date("Y/m/d")}}</label>
+                </div>
+                <div wire:poll="time" class="form-group row">
+                    <label class="col-sm-5 col-form-label">Time : {{$Time}}</label>
                 </div>
             </div>
         </div>

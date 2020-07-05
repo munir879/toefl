@@ -17,16 +17,30 @@ class Index extends Component
     public $IdTest;
     public $Segmen;
     public $MemberTestId;
+    public $MemberTest;
+    public $Time;
 
 
     public function mount($id)
     {
         $this->IdTest = $id;
         $this->DataTest($id);
-        $this->MemberTestId = Member_test::firstOrCreate([
-            'member_id' => \Auth::id(),
-            'test_id' => $id
-        ])->id;
+        $MemberTest =
+            Member_test::firstOrCreate([
+                'member_id' => \Auth::id(),
+                'test_id' => $id
+            ]);
+        $this->MemberTestId = $MemberTest->id;
+        $this->MemberTest = $MemberTest;
+        $this->time();
+    }
+
+    public function time()
+    {
+        $Time = $this->MemberTest->created_at;
+        $Endtime = date('Y-m-d H:i:s', strtotime('+1 hour', strtotime($Time)));
+        $TimeTest = date_diff(date_create($Endtime), date_create());
+        $this->Time =  $TimeTest->h . ':' . $TimeTest->i . ':' . $TimeTest->s;
     }
 
     public function DataTest($id)
