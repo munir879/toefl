@@ -28,6 +28,8 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
+    @auth("admin")
+
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
             <i class="fas fa-fw fa-cog"></i>
@@ -42,77 +44,28 @@
             </div>
         </div>
     </li>
-
+    @endauth
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
+    @auth("member")
+
+
+    <li class="nav-item {{ Request::is('member/test') || Request::is('member/test/*')  ? 'active' : '' }}">
+        <a class="nav-link collapsed " href="#" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
             <i class="fas fa-fw fa-user"></i>
             <span>Members</span>
         </a>
-        <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionSidebar">
+        <div id="collapse2" class="collapse {{ Request::is('member/test') || Request::is('member/test/*') ? 'show' : '' }}" aria-labelledby="heading2" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <!-- <h6 class="collapse-header">Custom User:</h6> -->
-                <a class="collapse-item" href="/member/test">Tests</a>
+                <a class="collapse-item {{ Request::is('member/test') || Request::is('member/test/*') ? 'active' : '' }}" href="{{route('member.test')}}">Tests</a>
                 <a class="collapse-item" href="/score">Scores</a>
             </div>
         </div>
     </li>
 
-    <!-- Nav Item - Others -->
-    <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-            <i class="fas fa-fw fa-compass"></i>
-            <span>Others</span></a>
-    </li>
+    @endauth
 
-    <!-- Divider -->
-    <hr class="sidebar-divider">
 
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        Addons
-    </div>
 
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item active">
-        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>Pages</span>
-        </a>
-        <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Login Screens:</h6>
-                <a class="collapse-item" href="login.html">Login</a>
-                <a class="collapse-item" href="register.html">Register</a>
-                <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                <div class="collapse-divider"></div>
-                <h6 class="collapse-header">Other Pages:</h6>
-                <a class="collapse-item" href="404.html">404 Page</a>
-                <a class="collapse-item active" href="blank.html">Blank Page</a>
-            </div>
-        </div>
-    </li>
-
-    <!-- Nav Item - Charts -->
-    <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Charts</span></a>
-    </li>
-
-    <!-- Nav Item - Tables -->
-    <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Tables</span></a>
-    </li>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider d-none d-md-block">
-
-    <!-- Sidebar Toggler (Sidebar) -->
-    <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-    </div>
 
 </ul>

@@ -17,6 +17,16 @@ class test_question_segment extends Model
         return $this->hasOne(Question_segment::class, 'id', 'question_segment_id');
     }
 
+    public function questions()
+    {
+        return $this->hasManyThrough(
+            Question::class,
+            Question_segment::class,
+            'id', // Foreign key on owners table...
+            'question_segment_id',
+        );
+    }
+
     public function test_segmen()
     {
         return $this->hasOne(Test_segment::class, 'id');

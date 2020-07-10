@@ -34,18 +34,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::livewire('/questions', 'questions.index')->layout('layouts.dashboard');
-Route::livewire('/questions/create/{id}', 'questions.create')->layout('layouts.dashboard')->name('questions.create');
-Route::livewire('/articles/edit/{id}', 'article.update')->layout('layouts.dashboard')->name('articles.edit');
-Route::livewire('/questions/edit/{id}', 'questions.edit')->layout('layouts.dashboard')->name('questions.edit');
-Route::livewire('/articles/create/{id}', 'article.create')->layout('layouts.dashboard')->name('articles.create');
-Route::livewire('/articles', 'article.index')->layout('layouts.dashboard');
-Route::livewire('/questions/update', 'questions.update')->layout('layouts.dashboard');
-Route::livewire('/test', 'test.index')->layout('layouts.dashboard');
-Route::livewire('/test/segmen', 'test.segmen')->layout('layouts.dashboard');
-Route::livewire('/test/segmen/{id}', 'test.segmen')->layout('layouts.dashboard')->name('test.segmen');
-Route::livewire('/articles/segmen/{id}', 'article.index')->layout('layouts.dashboard')->name('articles.index');
-Route::livewire('/questions/segmen/{id}', 'questions.index')->layout('layouts.dashboard')->name('questions.index');
+
 Route::livewire('/score', 'score.index')->layout('layouts.dashboard');
 
 Route::livewire('/user/login', 'user.login');
@@ -55,11 +44,26 @@ Route::livewire('/admin/login', 'admin.login');
 Route::middleware('auth:member')->group(function () {
     Route::livewire('/dasbord', 'home.index')->layout('layouts.dashboard')->name('user.login');
     Route::livewire('/member/test/{id}', 'member-test-questions.index')->layout('layouts.dashboard')->name('start.test');
-    Route::livewire('/member/test', 'member.test')->layout('layouts.dashboard');
+    Route::livewire('/member/test', 'member.test')->layout('layouts.dashboard')->name('member.test');
+});
+
+Route::middleware('auth:member')->group(function () {
 });
 
 // auth admin
 Route::middleware('auth:admin')->group(function () {
+    Route::livewire('/questions', 'questions.index')->layout('layouts.dashboard');
+    Route::livewire('/questions/create/{id}', 'questions.create')->layout('layouts.dashboard')->name('questions.create');
+    Route::livewire('/articles/edit/{id}', 'article.update')->layout('layouts.dashboard')->name('articles.edit');
+    Route::livewire('/questions/edit/{id}', 'questions.edit')->layout('layouts.dashboard')->name('questions.edit');
+    Route::livewire('/articles/create/{id}', 'article.create')->layout('layouts.dashboard')->name('articles.create');
+    Route::livewire('/articles', 'article.index')->layout('layouts.dashboard');
+    Route::livewire('/questions/update', 'questions.update')->layout('layouts.dashboard');
+    Route::livewire('/test', 'test.index')->layout('layouts.dashboard');
+    Route::livewire('/test/segmen', 'test.segmen')->layout('layouts.dashboard');
+    Route::livewire('/test/segmen/{id}', 'test.segmen')->layout('layouts.dashboard')->name('test.segmen');
+    Route::livewire('/articles/segmen/{id}', 'article.index')->layout('layouts.dashboard')->name('articles.index');
+    Route::livewire('/questions/segmen/{id}', 'questions.index')->layout('layouts.dashboard')->name('questions.index');
 });
 
 

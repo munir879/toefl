@@ -22,10 +22,7 @@ class Question extends Component
         $this->MemberTestId = $MemberTest;
     }
 
-    public function asd()
-    {
-        dd($this->IdQuestion);
-    }
+
 
     public function Aswer($IdQuestion, $idAnswer)
     {

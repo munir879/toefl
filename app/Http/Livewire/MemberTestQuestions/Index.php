@@ -23,13 +23,16 @@ class Index extends Component
 
     public function mount($id)
     {
+
         $this->IdTest = $id;
         $this->DataTest($id);
+
         $MemberTest =
             Member_test::firstOrCreate([
                 'member_id' => \Auth::id(),
                 'test_id' => $id
             ]);
+
         $this->MemberTestId = $MemberTest->id;
         $this->MemberTest = $MemberTest;
         $this->time();
@@ -45,7 +48,9 @@ class Index extends Component
 
     public function DataTest($id)
     {
+
         $this->Segmen = test_question_segment::where('test_id', $id)->with('test_segmen', 'question_segment')->get();
+
         $this->Test = Test::find($id);
         if (is_null($this->Test)) {
             return abort(404);

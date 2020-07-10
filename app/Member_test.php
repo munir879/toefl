@@ -12,4 +12,14 @@ class Member_test extends Model
     ];
 
     protected $table = 'member_test';
+
+    public function MemberTestQuestion()
+    {
+        return $this->hasMany(Member_test_question::class);
+    }
+
+    public function Test()
+    {
+        return $this->hasOne(Test::class, 'id');
+    }
 }
