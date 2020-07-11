@@ -31,7 +31,13 @@
 
     <div class="col-8">
         @foreach($Question as $data)
-        @livewire('member-test-questions.question', ['question' => $data->question_segment->id, 'MemberTest' =>$MemberTestId ], key($data->question_segment->id))
+        @livewire('member-test-questions.question',
+        ['question' => $data->question_segment->id,
+        'MemberTest' =>$MemberTestId,
+        'currentPage' => $Question->currentPage(),
+        'total' => $Question->total()
+        ],
+        key($data->question_segment->id))
         @endforeach
     </div>
 

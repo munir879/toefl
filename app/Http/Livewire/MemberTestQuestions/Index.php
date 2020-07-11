@@ -19,7 +19,13 @@ class Index extends Component
     public $MemberTestId;
     public $MemberTest;
     public $Time;
+    public $page = 1;
 
+
+    protected $listeners = ['nextPage' => 'next', 'previousPage' => 'previous'];
+    protected $updatesQueryString = [
+        'page' => ['except' => 1],
+    ];
 
     public function mount($id)
     {
@@ -36,7 +42,20 @@ class Index extends Component
         $this->MemberTestId = $MemberTest->id;
         $this->MemberTest = $MemberTest;
         $this->time();
+        $this->fill(request()->only('page'));
     }
+
+
+    public function next()
+    {
+        $this->page += 1;
+    }
+
+    public function previous()
+    {
+        $this->page -= 1;
+    }
+
 
     public function time()
     {
@@ -44,6 +63,9 @@ class Index extends Component
         $Endtime = date('Y-m-d H:i:s', strtotime('+1 hour', strtotime($Time)));
         $TimeTest = date_diff(date_create($Endtime), date_create());
         $this->Time =  $TimeTest->h . ':' . $TimeTest->i . ':' . $TimeTest->s;
+        if ($TimeTest->h == 0 && $TimeTest->i == 0 && $TimeTest->s == 0) {
+            return abort(404);
+        }
     }
 
     public function DataTest($id)

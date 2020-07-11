@@ -46,9 +46,21 @@
                       <i class="fas fa-play"></i>
                     </span>
                   </a> -->
-
-        <div class="col-sm-12">
-            {{$ques->links()}}
+        <div class="row">
+            <div class="col-sm-3">
+                @if($currentPage > 1 )
+                <button wire:click="$emit('previousPage')" type="button" class="btn btn-primary">Previous Test Segmen</button>
+                @endif
+            </div>
+            <div class="col-sm-6">
+                {{$ques->links()}}
+            </div>
+            <div class="col-sm-3">
+                @if($total - $currentPage > 0 )
+                <button wire:click="$emit('nextPage')" type="button" class="btn btn-primary">Next Test Segmen</button>
+                @endif
+            </div>
         </div>
+
     </div>
 </div>

@@ -13,13 +13,17 @@ class Question extends Component
     use WithPagination;
     public $IdQuestion;
     public $MemberTestId;
+    public $currentPage;
+    public $total;
 
 
-    public function mount($question, $MemberTest)
+    public function mount($question, $MemberTest, $currentPage, $total)
     {
         $this->resetPage();
         $this->IdQuestion = $question;
         $this->MemberTestId = $MemberTest;
+        $this->currentPage = $currentPage;
+        $this->total = $total;
     }
 
 
