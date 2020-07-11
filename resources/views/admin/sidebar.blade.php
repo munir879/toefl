@@ -30,12 +30,26 @@
     <!-- Nav Item - Pages Collapse Menu -->
     @auth("admin")
 
-    <li class="nav-item">
+    <li class="nav-item  {{ Request::is('test') || Request::is('test/*')  ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
             <i class="fas fa-fw fa-cog"></i>
             <span>Admin</span>
         </a>
-        <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordionSidebar">
+        <div id="collapse1" class="collapse {{ Request::is('test') || Request::is('test/*')  ? 'show' : '' }}" aria-labelledby="heading1" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <!-- <h6 class="collapse-header">Custom User:</h6> -->
+                <a class="collapse-item {{ Request::is('test') || Request::is('test/*')  ? 'active' : '' }}" href="/test">Input Test</a>
+                <a class="collapse-item" href="/questions">Questions</a>
+                <a class="collapse-item" href="/articles">Articles</a>
+            </div>
+        </div>
+    </li>
+    <li class="nav-item  ">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse" aria-expanded="true" aria-controls="collapse1">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Setting</span>
+        </a>
+        <div id="collapse" class="collapse" aria-labelledby="heading1" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <!-- <h6 class="collapse-header">Custom User:</h6> -->
                 <a class="collapse-item" href="/test">Input Test</a>

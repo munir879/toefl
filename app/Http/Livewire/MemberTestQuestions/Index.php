@@ -13,7 +13,7 @@ class Index extends Component
     use WithPagination;
     public $Test;
     public $TestSegmen;
-    public $QuesionSegmen;
+public $QuesionSegmen;
     public $IdTest;
     public $Segmen;
     public $MemberTestId;
