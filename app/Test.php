@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Test extends Model
 {
     protected $fillable = [
-        'name', 'is_active',
+        'name', 'is_active', 'time'
     ];
 
     public function question_segments()
