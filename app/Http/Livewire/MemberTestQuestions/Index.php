@@ -7,6 +7,7 @@ use App\Test;
 use App\test_question_segment;
 use Livewire\WithPagination;
 use App\Member_test;
+use Illuminate\Routing\Route;
 
 class Index extends Component
 {
@@ -66,8 +67,9 @@ class Index extends Component
 
         $TimeTest = date_diff(date_create($Endtime), date_create());
         $this->Time =  $TimeTest->h . ':' . $TimeTest->i . ':' . $TimeTest->s;
-        if ($TimeTest->h == 0 && $TimeTest->i == 0 && $TimeTest->s == 0) {
-            return abort(404);
+
+        if (date_create($Endtime) < date_create()) {
+            return redirect()->route('member.score', ['id' => $this->MemberTestId]);
         }
     }
 

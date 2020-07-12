@@ -18,4 +18,13 @@ class Test extends Model
     {
         return $this->hasOne(Test_segment::class, 'id');
     }
+    public function Member_test()
+    {
+        return $this->hasMany(Member_test::class, 'test_id');
+    }
+
+    public function Member_score()
+    {
+        return $this->hasMany(Member_test::class, 'test_id')->whereNull('score');
+    }
 }

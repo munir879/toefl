@@ -43,8 +43,12 @@ class Test extends Component
 
     public function render()
     {
-        return view('livewire.member.test', [
-            'test' => Tes::with('question_segments')->where('is_active', true)->get()
-        ]);
+        $IdMember = \Auth::id();
+        $test = Tes::with('question_segments')
+            ->has('Member_test', 'Member_score')
+            ->where('is_active', true)
+            ->get();
+
+        return view('livewire.member.test', compact('test'));
     }
 }

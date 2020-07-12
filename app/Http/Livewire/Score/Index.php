@@ -14,21 +14,20 @@ class Index extends Component
     public $Score = [];
     public $ques;
     public $Test;
+    public $Idtest;
 
 
 
-    public function mount()
+    public function mount($id)
     {
-
-
-
+        $this->Idtest = $id;
         $this->data();
     }
 
     public function data()
     {
         $MemberAnswer = 0;
-        $MemberTest =  Member_test::with('MemberTestQuestion')->find(1);
+        $MemberTest =  Member_test::with('MemberTestQuestion')->find($this->Idtest);
         foreach ($MemberTest->MemberTestQuestion as $data) {
 
             $answer = Question::where('id', $data->question_id)->with(['Aswers' => function ($query) use ($data) {
@@ -49,6 +48,9 @@ class Index extends Component
         $this->Score['true'] = $MemberAnswer;
         $this->Score['wrong'] = $TotalQues - $MemberAnswer;
         $this->Score['total'] = $TotalQues;
+
+        $MemberTest->score = $MemberAnswer / $TotalQues * 100;
+        $MemberTest->save();
     }
 
     public function render()

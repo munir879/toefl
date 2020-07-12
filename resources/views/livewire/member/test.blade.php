@@ -41,6 +41,7 @@
                             </tr>
                         </thead>
                         <tbody>
+
                             @foreach($test as $data)
 
                             <tr>
