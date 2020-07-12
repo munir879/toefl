@@ -31,7 +31,7 @@
     @auth("admin")
 
     <li class="nav-item  {{ Request::is('test') || Request::is('test/*')  ? 'active' : '' }}">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse">
             <i class="fas fa-fw fa-cog"></i>
             <span>Admin</span>
         </a>
@@ -44,20 +44,22 @@
             </div>
         </div>
     </li>
-    <li class="nav-item  ">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse" aria-expanded="true" aria-controls="collapse1">
+
+    <li class="nav-item  {{ Request::is('setting') || Request::is('setting/*')  ? 'active' : '' }}">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse">
             <i class="fas fa-fw fa-cog"></i>
             <span>Setting</span>
         </a>
-        <div id="collapse" class="collapse" aria-labelledby="heading1" data-parent="#accordionSidebar">
+        <div id="collapse2" class="collapse {{ Request::is('setting') || Request::is('setting/*')  ? 'show' : '' }}" aria-labelledby="heading1" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <!-- <h6 class="collapse-header">Custom User:</h6> -->
-                <a class="collapse-item" href="/test">Input Test</a>
+                <a class="collapse-item {{ Request::is('setting/account')  ? 'active' : '' }}" href="{{route('admin.account')}}">Account</a>
                 <a class="collapse-item" href="/questions">Questions</a>
                 <a class="collapse-item" href="/articles">Articles</a>
             </div>
         </div>
     </li>
+
     @endauth
     <!-- Nav Item - Pages Collapse Menu -->
     @auth("member")
@@ -78,7 +80,6 @@
     </li>
 
     @endauth
-
 
 
 

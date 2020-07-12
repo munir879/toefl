@@ -64,6 +64,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::livewire('/test/segmen/{id}', 'test.segmen')->layout('layouts.dashboard')->name('test.segmen');
     Route::livewire('/articles/segmen/{id}', 'article.index')->layout('layouts.dashboard')->name('articles.index');
     Route::livewire('/questions/segmen/{id}', 'questions.index')->layout('layouts.dashboard')->name('questions.index');
+    Route::livewire('/setting/account', 'admin.account')->layout('layouts.dashboard')->name('admin.account');
 });
 
 
