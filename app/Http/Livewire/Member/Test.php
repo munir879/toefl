@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Member;
 use Livewire\Component;
 use App\Test as Tes;
 use App\Test_segment;
+use Illuminate\Database\Eloquent\Builder;
 
 class Test extends Component
 {
@@ -45,7 +46,11 @@ class Test extends Component
     {
         $IdMember = \Auth::id();
         $test = Tes::with('question_segments')
-            ->has('Member_test', 'Member_score')
+
+            ->whereDoesntHave('Member_test', function (Builder $query) use ($IdMember) {
+                $query->where('member_id', $IdMember);
+                $query->whereNotNull('score');
+            })
             ->where('is_active', true)
             ->get();
 

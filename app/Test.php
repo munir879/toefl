@@ -25,6 +25,6 @@ class Test extends Model
 
     public function Member_score()
     {
-        return $this->hasMany(Member_test::class, 'test_id')->whereNull('score');
+        return $this->hasOne(Member_test::class, 'test_id');
     }
 }
