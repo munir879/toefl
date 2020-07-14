@@ -46,6 +46,7 @@ Route::middleware('auth:member')->group(function () {
     Route::livewire('/member/test/{id}', 'member-test-questions.index')->layout('layouts.dashboard')->name('start.test');
     Route::livewire('/score/{id}', 'score.index')->layout('layouts.dashboard')->name('member.score');
     Route::livewire('/member/test', 'member.test')->layout('layouts.dashboard')->name('member.test');
+    Route::livewire('/member/setting/account', 'user.account')->layout('layouts.dashboard')->name('member.account');
 });
 
 Route::middleware('auth:member')->group(function () {

@@ -66,15 +66,28 @@
 
 
     <li class="nav-item {{ Request::is('member/test') || Request::is('member/test/*')  ? 'active' : '' }}">
-        <a class="nav-link collapsed " href="#" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
+        <a class="nav-link collapsed " href="#" data-toggle="collapse" data-target="#collapse" aria-expanded="true" aria-controls="collapse2">
             <i class="fas fa-fw fa-user"></i>
             <span>Members</span>
         </a>
-        <div id="collapse2" class="collapse {{ Request::is('member/test') || Request::is('member/test/*') ? 'show' : '' }}" aria-labelledby="heading2" data-parent="#accordionSidebar">
+        <div id="collapse" class="collapse {{ Request::is('member/test') || Request::is('member/test/*') ? 'show' : '' }}" aria-labelledby="heading2" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <!-- <h6 class="collapse-header">Custom User:</h6> -->
                 <a class="collapse-item {{ Request::is('member/test') || Request::is('member/test/*') ? 'active' : '' }}" href="{{route('member.test')}}">Tests</a>
                 <a class="collapse-item" href="/score">Scores</a>
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item  {{ Request::is('member/setting') || Request::is('member/setting/*')  ? 'active' : '' }}">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Setting</span>
+        </a>
+        <div id="collapse2" class="collapse {{ Request::is('member/setting') || Request::is('member/setting/*')  ? 'show' : '' }}" aria-labelledby="heading1" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <!-- <h6 class="collapse-header">Custom User:</h6> -->
+                <a class="collapse-item {{ Request::is('member/setting/account')  ? 'active' : '' }}" href="{{route('member.account')}}">Account</a>
             </div>
         </div>
     </li>
