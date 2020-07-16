@@ -37,12 +37,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 
+
 Route::livewire('/user/login', 'user.login');
 Route::livewire('/admin/login', 'admin.login');
 
 // auth member
 Route::middleware('auth:member')->group(function () {
     Route::livewire('/dasbord', 'home.index')->layout('layouts.dashboard')->name('user.login');
+    Route::livewire('/logout', 'logout')->layout('layouts.dashboard')->name('logout');
     Route::livewire('/member/test/{id}', 'member-test-questions.index')->layout('layouts.dashboard')->name('start.test');
     Route::livewire('/score/{id}', 'score.show')->layout('layouts.dashboard')->name('member.score');
     Route::livewire('/member/test', 'member.test')->layout('layouts.dashboard')->name('member.test');
@@ -64,6 +66,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::livewire('/questions/update', 'questions.update')->layout('layouts.dashboard');
     Route::livewire('/test', 'test.index')->layout('layouts.dashboard');
     Route::livewire('/test/segmen', 'test.segmen')->layout('layouts.dashboard');
+    Route::livewire('/test/score', 'test.score')->layout('layouts.dashboard')->name('test.score');
     Route::livewire('/test/segmen/{id}', 'test.segmen')->layout('layouts.dashboard')->name('test.segmen');
     Route::livewire('/articles/segmen/{id}', 'article.index')->layout('layouts.dashboard')->name('articles.index');
     Route::livewire('/questions/segmen/{id}', 'questions.index')->layout('layouts.dashboard')->name('questions.index');
