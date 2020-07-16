@@ -38,13 +38,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 
-Route::livewire('/user/login', 'user.login');
-Route::livewire('/admin/login', 'admin.login');
+Route::livewire('/user/login', 'user.login')->name('user.login');
+Route::livewire('/admin/login', 'admin.login')->name('admin.login');
+Route::livewire('/logout', 'logout')->name('logout');
 
 // auth member
 Route::middleware('auth:member')->group(function () {
     Route::livewire('/dasbord', 'home.index')->layout('layouts.dashboard')->name('user.login');
-    Route::livewire('/logout', 'logout')->layout('layouts.dashboard')->name('logout');
     Route::livewire('/member/test/{id}', 'member-test-questions.index')->layout('layouts.dashboard')->name('start.test');
     Route::livewire('/score/{id}', 'score.show')->layout('layouts.dashboard')->name('member.score');
     Route::livewire('/member/test', 'member.test')->layout('layouts.dashboard')->name('member.test');
@@ -52,8 +52,7 @@ Route::middleware('auth:member')->group(function () {
     Route::livewire('/score', 'score.index')->layout('layouts.dashboard');
 });
 
-Route::middleware('auth:member')->group(function () {
-});
+
 
 // auth admin
 Route::middleware('auth:admin')->group(function () {
