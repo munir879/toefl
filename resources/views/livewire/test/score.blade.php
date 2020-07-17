@@ -44,9 +44,8 @@
                                 <td>{{$data->name}}</td>
                                 <td>{{intval($data->avgScore)}}</td>
                                 <td>
-                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editModal">
-                                        Detail
-                                    </button>
+
+                                    <a type="button" class="btn btn-success" href="{{route('test.scoreshow', $data->id)}}">Detail</a>
 
                                 </td>
                             </tr>

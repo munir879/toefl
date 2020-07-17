@@ -22,4 +22,9 @@ class Member_test extends Model
     {
         return $this->hasOne(Test::class, 'id');
     }
+
+    public function member()
+    {
+        return $this->hasOne(Member::class, 'id', 'member_id');
+    }
 }

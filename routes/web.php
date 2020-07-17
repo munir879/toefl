@@ -66,6 +66,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::livewire('/test', 'test.index')->layout('layouts.dashboard');
     Route::livewire('/test/segmen', 'test.segmen')->layout('layouts.dashboard');
     Route::livewire('/test/score', 'test.score')->layout('layouts.dashboard')->name('test.score');
+    Route::livewire('/test/score/{id}', 'test.score-show')->layout('layouts.dashboard')->name('test.scoreshow');
     Route::livewire('/test/segmen/{id}', 'test.segmen')->layout('layouts.dashboard')->name('test.segmen');
     Route::livewire('/articles/segmen/{id}', 'article.index')->layout('layouts.dashboard')->name('articles.index');
     Route::livewire('/questions/segmen/{id}', 'questions.index')->layout('layouts.dashboard')->name('questions.index');
