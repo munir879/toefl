@@ -57,6 +57,7 @@
                     @yield('content')
 
 
+
                 </div>
                 <!-- /.container-fluid -->
 

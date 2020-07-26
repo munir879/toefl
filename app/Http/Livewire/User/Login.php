@@ -20,6 +20,7 @@ class Login extends Component
         ]);
 
         if (Auth::guard('member')->attempt(['email' => $this->email, 'password' => $this->password])) {
+
             return redirect()->to('/dasbord');
         };
         session()->flash('status', 'Email atau Pasword salah');

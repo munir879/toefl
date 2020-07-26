@@ -16,7 +16,10 @@ class CreateMemberTestTable extends Migration
         Schema::create('member_test', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('member_id');
-            $table->foreign('member_id')->references('id')->on('members');
+            $table->unsignedBigInteger('test_id');
+            $table->integer('score')->nullable();
+            $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
+            $table->foreign('test_id')->references('id')->on('tests')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -3,7 +3,7 @@
         <div class="card shadow mb-4">
             <!-- Card Header - Dropdown -->
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Data Test</h6>
                 <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -19,11 +19,15 @@
             </div>
             <!-- Card Body -->
             <div class="card-body">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                    Launch demo modal
+                <button type="button" class="btn btn-success btn-icon-split" data-toggle="modal" data-target="#exampleModal">
+                    <span class="icon text-white-50">
+                      <i class="fas fa-plus"></i>
+                    </span>
+                    <span class="text">Add Data</span>
                 </button>
+                <div class="my-2"></div>
                 <br>
-                <br>
+
                 @if (session()->has('message'))
                 <div class="alert alert-success">
                     {{ session('message') }}
@@ -35,7 +39,6 @@
                             <tr>
                                 <th style="width:20px">No</th>
                                 <th>Nama</th>
-                                <th>Test Question segments</th>
                                 <th>Status</th>
                                 <th>Action</th>
 
@@ -46,17 +49,19 @@
                             <tr>
                                 <td>{{$loop->index+1}}</td>
                                 <td>{{$data->name}}</td>
+
                                 <td>{{$data->is_active = true ? 'aktif': 'tidak aktif'}}</td>
-                                <td></td>
+
                                 <td>
-                                    <button wire:click="$emit('editTest', {{$data->id}})" type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal">
+                                    <button wire:click="$emit('editTest', {{$data->id}})" type="button" class="btn btn-success" data-toggle="modal" data-target="#editModal">
                                         edit
                                     </button>
                                     @if($confirming===$data->id)
                                     <button wire:click="kill({{ $data->id }})" type="button" class="btn btn-danger">Sure?</button>
                                     @else
-                                    <button wire:click="confirmDelete({{ $data->id }})" type="button" class="btn btn-warning">Delete</button>
+                                    <button wire:click="confirmDelete({{ $data->id }})" type="button" class="btn btn-danger">Delete</button>
                                     @endif
+                                    <a class="btn btn-primary" href="{{route('test.segmen', $data->id)}}" role="button">Test Segmen</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -69,8 +74,10 @@
 </div>
 <livewire:test.create />
 <livewire:test.edit />
+
 @push('scripts')
 <script type="text/javascript">
+    $('.modal-backdrop fade show').remove();
     window.livewire.on('testStore', () => {
         $('#exampleModal').modal('hide')
     })
