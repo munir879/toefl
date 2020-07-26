@@ -10,13 +10,25 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Recipient:</label>
-                    <input wire:model="name" name="data" type="text" class="form-control" id="recipient-name">
+                    <input wire:model="name" name="data" type="text" class="form-control">
                     @error('name')
                     <div class="alert alert-danger" role="alert">
                         {{ $message }}
                     </div>
                     @enderror
                 </div>
+
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">
+                        Time in minutes:</label>
+                    <input wire:model="time" name="data" type="number" class="form-control">
+                    @error('time')
+                    <div class="alert alert-danger" role="alert">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                </div>
+
                 <div class="form-group">
                     <label for="message-text" class="col-form-label">Status</label>
                     <select wire:model="status" class="form-control">

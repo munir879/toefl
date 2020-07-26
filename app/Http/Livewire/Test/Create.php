@@ -8,6 +8,7 @@ use App\Test;
 class Create extends Component
 {
     public $name;
+    public $time;
     public $status = true;
 
 
@@ -16,6 +17,7 @@ class Create extends Component
     {
         $this->validateOnly($field, [
             'name' => ['required', 'string', 'min:5', 'max:255'],
+            'time' => ['required'],
             'status' => ['required']
         ]);
     }
@@ -24,11 +26,13 @@ class Create extends Component
 
         $validatedData = $this->validate([
             'name' => ['required', 'string', 'min:5', 'max:255'],
+            'time' => ['required'],
             'status' => ['required']
         ]);
 
         Test::create([
             'name' => $this->name,
+            'time' => $this->time,
             'is_active' => $this->status = 1 ? true : false
         ]);
 

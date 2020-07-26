@@ -7,6 +7,10 @@ use App\Test;
 use App\test_question_segment;
 use Livewire\WithPagination;
 use App\Member_test;
+<<<<<<< HEAD
+=======
+use Illuminate\Routing\Route;
+>>>>>>> ccadd50c9e3c0c2bf8156cc66ad5ff7b257ad9b5
 
 class Index extends Component
 {
@@ -17,6 +21,7 @@ class Index extends Component
     public $IdTest;
     public $Segmen;
     public $MemberTestId;
+<<<<<<< HEAD
 
 
     public function mount($id)
@@ -27,10 +32,69 @@ class Index extends Component
             'member_id' => \Auth::id(),
             'test_id' => $id
         ])->id;
+=======
+    public $MemberTest;
+    public $Time;
+    public $page = 1;
+
+
+    protected $listeners = ['nextPage' => 'next', 'previousPage' => 'previous'];
+    protected $updatesQueryString = [
+        'page' => ['except' => 1],
+    ];
+
+    public function mount($id)
+    {
+
+        $this->IdTest = $id;
+        $this->DataTest($id);
+
+        $MemberTest =
+            Member_test::firstOrCreate([
+                'member_id' => \Auth::id(),
+                'test_id' => $id
+            ]);
+
+        $this->MemberTestId = $MemberTest->id;
+        $this->MemberTest = $MemberTest;
+        $this->time();
+        $this->fill(request()->only('page'));
+    }
+
+
+    public function next()
+    {
+        $this->page += 1;
+    }
+
+    public function previous()
+    {
+        $this->page -= 1;
+    }
+
+
+    public function time()
+    {
+        $Time = $this->MemberTest->created_at;
+
+        $AddTime = $this->Test->time;
+        $Endtime = date('Y-m-d H:i:s', strtotime(+$AddTime . 'minutes', strtotime($Time)));
+
+        $TimeTest = date_diff(date_create($Endtime), date_create());
+        $this->Time =  $TimeTest->h . ':' . $TimeTest->i . ':' . $TimeTest->s;
+
+        if (date_create($Endtime) < date_create()) {
+            return redirect()->route('member.score', ['id' => $this->MemberTestId]);
+        }
+>>>>>>> ccadd50c9e3c0c2bf8156cc66ad5ff7b257ad9b5
     }
 
     public function DataTest($id)
     {
+<<<<<<< HEAD
+=======
+
+>>>>>>> ccadd50c9e3c0c2bf8156cc66ad5ff7b257ad9b5
         $this->Segmen = test_question_segment::where('test_id', $id)->with('test_segmen', 'question_segment')->get();
         $this->Test = Test::find($id);
         if (is_null($this->Test)) {
