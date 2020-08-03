@@ -7,13 +7,10 @@
             </div>
             <div class="card-body">
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-5 col-form-label">Name : </label>
+                    <label for="staticEmail" class="col-sm-5 col-form-label">Name : {{$Test->test->name}}</label>
                 </div>
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-5 col-form-label">Date : </label>
-                </div>
-                <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-5 col-form-label">Segments : </label>
+                    <label for="staticEmail" class="col-sm-10 col-form-label">Date : {{$Test->created_at}}</label>
                 </div>
             </div>
         </div>
