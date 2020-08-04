@@ -4,6 +4,7 @@ namespace App\Http\Livewire\MemberTestQuestions;
 
 use Livewire\Component;
 use App\Test;
+use App\Question;
 use App\test_question_segment;
 use Livewire\WithPagination;
 use App\Member_test;
@@ -23,7 +24,11 @@ class Index extends Component
     public $page = 1;
 
 
-    protected $listeners = ['nextPage' => 'next', 'previousPage' => 'previous'];
+    protected $listeners = [
+        'nextPage' => 'next',
+        'previousPage' => 'previous',
+        'finish' => 'finish'
+    ];
     protected $updatesQueryString = [
         'page' => ['except' => 1],
     ];
@@ -69,6 +74,7 @@ class Index extends Component
         $this->Time =  $TimeTest->h . ':' . $TimeTest->i . ':' . $TimeTest->s;
 
         if (date_create($Endtime) < date_create()) {
+            $this->finish();
             return redirect()->route('member.score', ['id' => $this->MemberTestId]);
         }
     }
@@ -81,6 +87,36 @@ class Index extends Component
         if (is_null($this->Test)) {
             return abort(404);
         }
+    }
+
+
+    public function finish()
+    {
+        $MemberAnswer = 0;
+        $MemberTest =  Member_test::with('MemberTestQuestion')->find($this->IdTest);
+
+        foreach ($MemberTest->MemberTestQuestion as $data) {
+            $answer = Question::where('id', $data->question_id)->with(['Aswers' => function ($query) use ($data) {
+                $query->where('id', $data->answer_id);
+            }])->first();
+
+            if ($answer->Aswers[0]->is_correct) {
+                $MemberAnswer += 1;
+            }
+        }
+
+        $TotalQues = 0;
+        $ques = test_question_segment::where('test_id', 1)->with('questions')->get();
+
+        foreach ($ques as $data) {
+            $TotalQues += $data->questions->count();
+        }
+
+
+        $MemberTest->score = $MemberAnswer / $TotalQues * 100;
+        $MemberTest->save();
+
+        return redirect()->route('member.score', ['id' => $this->MemberTestId]);
     }
 
     public function render()
