@@ -40,7 +40,7 @@
                 <!-- <h6 class="collapse-header">Custom User:</h6> -->
                 <a class="collapse-item {{ Request::is('test') || Request::is('test/*') && !Request::is('test/score/*') && Request::is('test/score')  ? 'active' : '' }}" href="/test">Input Test</a>
                 <a class="collapse-item {{ Request::is('test/score/*') || Request::is('test/score')  ? 'active' : '' }}" href="{{route('test.score')}}">Score</a>
-                <a class="collapse-item" href="/articles">Articles</a>
+                <!-- <a class="collapse-item" href="/articles">Articles</a> -->
             </div>
         </div>
     </li>
