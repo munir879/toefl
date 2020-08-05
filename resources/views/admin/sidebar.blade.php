@@ -36,9 +36,11 @@
         <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <!-- <h6 class="collapse-header">Custom User:</h6> -->
-                <a class="collapse-item" href="/test">Input Test</a>
-                <a class="collapse-item" href="/questions">Questions</a>
-                <a class="collapse-item" href="/articles">Articles</a>
+
+                <a class="collapse-item {{ Request::is('test') || Request::is('test/*') && !Request::is('test/score/*') && Request::is('test/score')  ? 'active' : '' }}" href="/test">Input Test</a>
+                <a class="collapse-item {{ Request::is('test/score/*') || Request::is('test/score')  ? 'active' : '' }}" href="{{route('test.score')}}">Score</a>
+                <!-- <a class="collapse-item" href="/articles">Articles</a> -->
+
             </div>
         </div>
     </li>

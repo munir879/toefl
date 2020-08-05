@@ -27,7 +27,10 @@ class Show extends Component
     public function data()
     {
         $MemberAnswer = 0;
-        $MemberTest =  Member_test::with('MemberTestQuestion')->find($this->Idtest);
+        $MemberTest =  Member_test::with('MemberTestQuestion')->with('Test')->find($this->Idtest);
+
+        $this->Test = $MemberTest;
+
         foreach ($MemberTest->MemberTestQuestion as $data) {
 
             $answer = Question::where('id', $data->question_id)->with(['Aswers' => function ($query) use ($data) {
@@ -48,9 +51,6 @@ class Show extends Component
         $this->Score['true'] = $MemberAnswer;
         $this->Score['wrong'] = $TotalQues - $MemberAnswer;
         $this->Score['total'] = $TotalQues;
-
-        $MemberTest->score = $MemberAnswer / $TotalQues * 100;
-        $MemberTest->save();
     }
 
     public function render()
