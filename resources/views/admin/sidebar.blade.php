@@ -28,80 +28,93 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    @auth("admin")
-
-    <li class="nav-item  {{ Request::is('test') || Request::is('test/*')  ? 'active' : '' }}">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse">
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
             <i class="fas fa-fw fa-cog"></i>
             <span>Admin</span>
         </a>
-        <div id="collapse1" class="collapse {{ Request::is('test') || Request::is('test/*')  ? 'show' : '' }}" aria-labelledby="heading1" data-parent="#accordionSidebar">
+        <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <!-- <h6 class="collapse-header">Custom User:</h6> -->
+
                 <a class="collapse-item {{ Request::is('test') || Request::is('test/*') && !Request::is('test/score/*') && Request::is('test/score')  ? 'active' : '' }}" href="/test">Input Test</a>
                 <a class="collapse-item {{ Request::is('test/score/*') || Request::is('test/score')  ? 'active' : '' }}" href="{{route('test.score')}}">Score</a>
                 <!-- <a class="collapse-item" href="/articles">Articles</a> -->
-            </div>
-        </div>
-    </li>
-
-    <li class="nav-item  {{ Request::is('setting') || Request::is('setting/*')  ? 'active' : '' }}">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Setting</span>
-        </a>
-        <div id="collapse2" class="collapse {{ Request::is('setting') || Request::is('setting/*')  ? 'show' : '' }}" aria-labelledby="heading1" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <!-- <h6 class="collapse-header">Custom User:</h6> -->
-                <a class="collapse-item {{ Request::is('setting/account')  ? 'active' : '' }}" href="{{route('admin.account')}}">Account</a>
 
             </div>
         </div>
     </li>
 
-    @endauth
     <!-- Nav Item - Pages Collapse Menu -->
-    @auth("member")
-
-
-    <li class="nav-item {{ Request::is('member/test') || Request::is('member/test/*')  ? 'active' : '' }}">
-        <a class="nav-link collapsed " href="#" data-toggle="collapse" data-target="#collapse" aria-expanded="true" aria-controls="collapse2">
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
             <i class="fas fa-fw fa-user"></i>
             <span>Members</span>
         </a>
-        <div id="collapse" class="collapse {{ Request::is('member/test') || Request::is('member/test/*') ? 'show' : '' }}" aria-labelledby="heading2" data-parent="#accordionSidebar">
+        <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <!-- <h6 class="collapse-header">Custom User:</h6> -->
-                <a class="collapse-item {{ Request::is('member/test') || Request::is('member/test/*') ? 'active' : '' }}" href="{{route('member.test')}}">Tests</a>
+                <a class="collapse-item" href="/member/test">Tests</a>
                 <a class="collapse-item" href="/score">Scores</a>
             </div>
         </div>
     </li>
 
-    <li class="nav-item  {{ Request::is('member/setting') || Request::is('member/setting/*')  ? 'active' : '' }}">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Setting</span>
+    <!-- Nav Item - Others -->
+    <li class="nav-item">
+        <a class="nav-link" href="charts.html">
+            <i class="fas fa-fw fa-compass"></i>
+            <span>Others</span></a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Addons
+    </div>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item active">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Pages</span>
         </a>
-        <div id="collapse2" class="collapse {{ Request::is('member/setting') || Request::is('member/setting/*')  ? 'show' : '' }}" aria-labelledby="heading1" data-parent="#accordionSidebar">
+        <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <!-- <h6 class="collapse-header">Custom User:</h6> -->
-                <a class="collapse-item {{ Request::is('member/setting/account')  ? 'active' : '' }}" href="{{route('member.account')}}">Account</a>
+                <h6 class="collapse-header">Login Screens:</h6>
+                <a class="collapse-item" href="login.html">Login</a>
+                <a class="collapse-item" href="register.html">Register</a>
+                <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                <div class="collapse-divider"></div>
+                <h6 class="collapse-header">Other Pages:</h6>
+                <a class="collapse-item" href="404.html">404 Page</a>
+                <a class="collapse-item active" href="blank.html">Blank Page</a>
             </div>
         </div>
     </li>
 
-    @endauth
-
-    <hr class="sidebar-divider my-0">
-
-    <!-- Nav Item - Dashboard -->
+    <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="{{route('logout')}}">
-            <i class="fas fa-sign-out-alt"></i>
-            <span>Logout</span></a>
+        <a class="nav-link" href="charts.html">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Charts</span></a>
     </li>
 
+    <!-- Nav Item - Tables -->
+    <li class="nav-item">
+        <a class="nav-link" href="tables.html">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Tables</span></a>
+    </li>
 
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
 
 </ul>

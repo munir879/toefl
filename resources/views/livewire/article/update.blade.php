@@ -10,21 +10,33 @@
                     <label for="staticEmail" class="col-sm-5 col-form-label">Name</label>
 
                     <div class="col-sm-7">
+<<<<<<< HEAD
+                        <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$QuesSegmen->test_segments->name}}">
+=======
                         <input type="text" readonly class="form-control-plaintext" value="{{$QuesSegmen->test_segments->name}}">
+>>>>>>> ccadd50c9e3c0c2bf8156cc66ad5ff7b257ad9b5
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="staticEmail" class="col-sm-5 col-form-label">Question Quota</label>
 
                     <div class="col-sm-7">
+<<<<<<< HEAD
+                        <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$CountQuestion}} / {{$QuesSegmen->question_quota}}">
+=======
                         <input type="text" readonly class="form-control-plaintext" value="{{$CountQuestion}} / {{$QuesSegmen->question_quota}}">
+>>>>>>> ccadd50c9e3c0c2bf8156cc66ad5ff7b257ad9b5
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="staticEmail" class="col-sm-5 col-form-label">Article Quota</label>
 
                     <div class="col-sm-7">
+<<<<<<< HEAD
+                        <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$CountArticle}} / {{$QuesSegmen->article_quota ? : 0}}">
+=======
                         <input type="text" readonly class="form-control-plaintext" value="{{$CountArticle}} / {{$QuesSegmen->article_quota ? : 0}}">
+>>>>>>> ccadd50c9e3c0c2bf8156cc66ad5ff7b257ad9b5
                     </div>
                 </div>
 

@@ -17,6 +17,8 @@ class test_question_segment extends Model
         return $this->hasOne(Question_segment::class, 'id', 'question_segment_id');
     }
 
+<<<<<<< HEAD
+=======
     public function questions()
     {
         return $this->hasManyThrough(
@@ -27,6 +29,7 @@ class test_question_segment extends Model
         );
     }
 
+>>>>>>> ccadd50c9e3c0c2bf8156cc66ad5ff7b257ad9b5
     public function test_segmen()
     {
         return $this->hasOne(Test_segment::class, 'id');

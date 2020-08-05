@@ -12,6 +12,8 @@ class Member_test extends Model
     ];
 
     protected $table = 'member_test';
+<<<<<<< HEAD
+=======
 
     public function MemberTestQuestion()
     {
@@ -27,4 +29,5 @@ class Member_test extends Model
     {
         return $this->hasOne(Member::class, 'id', 'member_id');
     }
+>>>>>>> ccadd50c9e3c0c2bf8156cc66ad5ff7b257ad9b5
 }

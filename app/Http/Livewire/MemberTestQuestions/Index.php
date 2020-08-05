@@ -8,7 +8,10 @@ use App\Question;
 use App\test_question_segment;
 use Livewire\WithPagination;
 use App\Member_test;
+<<<<<<< HEAD
+=======
 use Illuminate\Routing\Route;
+>>>>>>> ccadd50c9e3c0c2bf8156cc66ad5ff7b257ad9b5
 
 class Index extends Component
 {
@@ -19,6 +22,18 @@ class Index extends Component
     public $IdTest;
     public $Segmen;
     public $MemberTestId;
+<<<<<<< HEAD
+
+
+    public function mount($id)
+    {
+        $this->IdTest = $id;
+        $this->DataTest($id);
+        $this->MemberTestId = Member_test::firstOrCreate([
+            'member_id' => \Auth::id(),
+            'test_id' => $id
+        ])->id;
+=======
     public $MemberTest;
     public $Time;
     public $page = 1;
@@ -77,11 +92,15 @@ class Index extends Component
             $this->finish();
             return redirect()->route('member.score', ['id' => $this->MemberTestId]);
         }
+>>>>>>> ccadd50c9e3c0c2bf8156cc66ad5ff7b257ad9b5
     }
 
     public function DataTest($id)
     {
+<<<<<<< HEAD
+=======
 
+>>>>>>> ccadd50c9e3c0c2bf8156cc66ad5ff7b257ad9b5
         $this->Segmen = test_question_segment::where('test_id', $id)->with('test_segmen', 'question_segment')->get();
         $this->Test = Test::find($id);
         if (is_null($this->Test)) {

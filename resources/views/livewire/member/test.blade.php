@@ -19,8 +19,16 @@
             </div>
             <!-- Card Body -->
             <div class="card-body">
+<<<<<<< HEAD
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Launch demo modal
+                </button>
+                <br>
+                <br>
+=======
 
 
+>>>>>>> ccadd50c9e3c0c2bf8156cc66ad5ff7b257ad9b5
                 @if (session()->has('message'))
                 <div class="alert alert-success">
                     {{ session('message') }}
@@ -38,7 +46,10 @@
                             </tr>
                         </thead>
                         <tbody>
+<<<<<<< HEAD
+=======
 
+>>>>>>> ccadd50c9e3c0c2bf8156cc66ad5ff7b257ad9b5
                             @foreach($test as $data)
 
                             <tr>

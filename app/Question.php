@@ -30,9 +30,12 @@ class Question extends Model
     {
         return $this->hasOne(Member_test_question::class);
     }
+<<<<<<< HEAD
+=======
 
     public function MemberTestQuestions()
     {
         return $this->hasMany(Member_test_question::class, 'id');
     }
+>>>>>>> ccadd50c9e3c0c2bf8156cc66ad5ff7b257ad9b5
 }

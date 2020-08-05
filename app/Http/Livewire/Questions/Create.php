@@ -7,7 +7,6 @@ use App\Question_segment;
 use App\Question;
 use App\Article;
 
-
 class Create extends Component
 {
 

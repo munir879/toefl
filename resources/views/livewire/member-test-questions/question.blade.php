@@ -46,6 +46,12 @@
                       <i class="fas fa-play"></i>
                     </span>
                   </a> -->
+<<<<<<< HEAD
+
+        <div class="col-sm-12">
+            {{$ques->links()}}
+        </div>
+=======
         <div class="row">
             <div class="col-sm-4">
                 @if($currentPage > 1 )
@@ -63,5 +69,6 @@
             </div>
         </div>
 
+>>>>>>> ccadd50c9e3c0c2bf8156cc66ad5ff7b257ad9b5
     </div>
 </div>
